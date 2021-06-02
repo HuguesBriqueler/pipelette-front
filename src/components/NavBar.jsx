@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Create from "./Create.jsx";
-import Home from "./Home.jsx";
-import Library from "./Library.jsx";
-import Profile from "./Profile.jsx";
+import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
+
+import NavRoutes from "./NavRoutes.jsx";
 
 import "../CSS/NavBar.css";
 
@@ -19,10 +12,6 @@ function NavBar() {
     </NavLink>
   );
 
-  const routeTo = (path, componentDisplayed) => (
-    <Route exact path={path} component={componentDisplayed} />
-  );
-
   return (
     <>
       <Router>
@@ -31,8 +20,7 @@ function NavBar() {
           {linkTo("/create", "Créer")} {linkTo("/library", "Bibliothèque")}
         </ul>
         <Switch>
-          {routeTo("/", Home)};{routeTo("/profile", Profile)};
-          {routeTo("/create", Create)};{routeTo("/library", Library)};
+          <NavRoutes />
         </Switch>
       </Router>
     </>
