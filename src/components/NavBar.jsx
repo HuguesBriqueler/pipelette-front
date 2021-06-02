@@ -35,9 +35,6 @@ function NavBar() {
           {routeTo("/create", Create)};{routeTo("/library", Library)};
         </Switch>
       </Router>
-      <div className="App">
-        <p>Hello World !</p>
-      </div>
     </>
   );
 }
