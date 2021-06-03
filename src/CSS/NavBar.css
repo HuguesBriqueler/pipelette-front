@@ -1,18 +1,29 @@
 ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 15px;
+  justify-content: flex-end;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  margin-bottom: 50px;
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+li {
+  padding-right: 75px;
+  align-items: center;
 }
 
 .current {
   font-size: 1.4rem;
-  color: blue;
+  color: #8d8080;
 }
 
 .link {
-  transition: font-size 0.4s;
+  transition: color 0.4s;
+}
+
+.navBar {
+  padding: 3vh;
+  background-color: #ffddd3;
+  border: solid 3px black;
 }

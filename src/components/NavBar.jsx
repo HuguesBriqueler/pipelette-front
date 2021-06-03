@@ -15,10 +15,14 @@ function NavBar() {
   return (
     <>
       <Router>
-        <ul>
-          {linkTo("/", "Accueil")} {linkTo("/profile", "Profile")}
-          {linkTo("/create", "Créer")} {linkTo("/library", "Bibliothèque")}
-        </ul>
+        <div className="navBar">
+          <ul>
+            <li>{linkTo("/", "Accueil")}</li>
+            <li>{linkTo("/profile", "Profile")}</li>
+            <li>{linkTo("/create", "Créer")}</li>
+            <li>{linkTo("/library", "Bibliothèque")}</li>
+          </ul>
+        </div>
         <Switch>
           <NavRoutes />
         </Switch>
