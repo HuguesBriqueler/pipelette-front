@@ -1,18 +1,31 @@
 ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 15px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin-bottom: 50px;
+  justify-content: flex-end;
+  font-family: "Josefin Slab", serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-right: 10px;
+  color: #80807e;
+}
+
+li {
+  padding-right: 75px;
+  align-items: center;
 }
 
 .current {
   font-size: 1.4rem;
-  color: blue;
+  color: #ffb29b;
 }
 
 .link {
-  transition: font-size 0.4s;
+  transition: color 0.4s;
+}
+
+.navBar {
+  padding: 3vh;
+  background-color: none;
+  border-bottom: solid 1px;
+  border-color: #76767588;
 }
