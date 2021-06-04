@@ -18,7 +18,7 @@ function NavBar() {
         <div className="navBar">
           <ul>
             <li>{linkTo("/", "Accueil")}</li>
-            <li>{linkTo("/profile", "Profile")}</li>
+            <li>{linkTo("/profile", "Profil")}</li>
             <li>{linkTo("/create", "Créer")}</li>
             <li>{linkTo("/library", "Bibliothèque")}</li>
           </ul>

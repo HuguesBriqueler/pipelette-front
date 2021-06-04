@@ -2,10 +2,11 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Josefin Slab", serif;
+  font-weight: 400;
   font-size: 1.4rem;
   margin-right: 10px;
+  color: #80807e;
 }
 
 li {
@@ -15,7 +16,7 @@ li {
 
 .current {
   font-size: 1.4rem;
-  color: #8d8080;
+  color: #ffb29b;
 }
 
 .link {
@@ -24,6 +25,7 @@ li {
 
 .navBar {
   padding: 3vh;
-  background-color: #ffddd3;
-  border: solid 3px black;
+  background-color: none;
+  border-bottom: solid 1px;
+  border-color: #76767588;
 }
