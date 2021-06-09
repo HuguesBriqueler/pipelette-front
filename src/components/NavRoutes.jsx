@@ -5,6 +5,7 @@ import Create from "../pages/Create.jsx";
 import Home from "../pages/Home.jsx";
 import Library from "../pages/Library.jsx";
 import Profile from "../pages/Profile.jsx";
+import Register from "../pages/Register.jsx";
 
 function NavRoutes() {
   const routeTo = (path, componentDisplayed) => (
@@ -12,10 +13,11 @@ function NavRoutes() {
   );
 
   return (
-    <div>
+    <>
       {routeTo("/", Home)} {routeTo("/profile", Profile)}
       {routeTo("/create", Create)} {routeTo("/library", Library)}
-    </div>
+      {routeTo("/register", Register)}
+    </>
   );
 }
 

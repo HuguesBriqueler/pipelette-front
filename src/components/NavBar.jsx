@@ -21,6 +21,7 @@ function NavBar() {
             <li>{linkTo("/profile", "Profil")}</li>
             <li>{linkTo("/create", "Créer")}</li>
             <li>{linkTo("/library", "Bibliothèque")}</li>
+            <li>{linkTo("/register", "S'inscrire")}</li>
           </ul>
         </div>
         <Switch>
