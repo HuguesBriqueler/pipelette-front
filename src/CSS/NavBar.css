@@ -5,12 +5,12 @@ ul {
   font-family: "Josefin Slab", serif;
   font-weight: 400;
   font-size: 1.4rem;
-  margin-right: 10px;
+  margin-right: 1vw;
   color: #80807e;
 }
 
 li {
-  padding-right: 75px;
+  padding-right: 5vw;
   align-items: center;
 }
 
