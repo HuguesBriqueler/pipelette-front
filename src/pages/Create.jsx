@@ -1,34 +1,77 @@
 import React from "react";
 import styled from "styled-components";
-import RecentlyCreated from "../components/RecentlyCreated.jsx";
+import "../CSS/RecentCapsules.css";
+
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Container = styled.div`
   display: grid;
-  grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  height: 50vh;
 `;
 
-const LeftColumn = styled.div`
+const ColumnLeft = styled.div`
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+`;
+
+const ColumnRight = styled.div`
   display: flex;
   flex-direction: column;
-  grid-column: 2;
-  justify-content: flex-start;
-  border-left: solid 3px black;
-  height: 60%;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Create() {
   return (
     <div>
-      <h1>STUDIO PIPELETTE</h1>
-      <h2>Enregistrez votre capsule sonore</h2>
-      <Container>
-        <RecentlyCreated />
-      </Container>
-      <LeftColumn>
-        <h1>1</h1>
-      </LeftColumn>
+      <h1 className="titre1">STUDIO PIPELETTE</h1>
+      <h2 className="titre2">Enregistrez votre capsule sonore</h2>
+      <div className="fakeImage">
+        <h1>Image</h1>
+      </div>
+      <Section>
+        <Container>
+          <ColumnLeft>
+            <div>
+              <p className="logo">👧</p>
+            </div>
+            <div className="capsules">
+              <h1>Capsule1</h1>
+            </div>
+            <div className="capsules">
+              <h1>Capsule2</h1>
+            </div>
+
+            <div className="capsules">
+              <h1>Capsule3</h1>
+            </div>
+          </ColumnLeft>
+          <ColumnRight>
+            <p className="texts">
+              Le Lorem Ipsum est simplement du faux texte employé dans la
+              composition et la mise en page avant impression.
+            </p>
+            <p className="symbols">🎙</p>
+            <p className="texts">Enregistrer</p>
+            <p className="symbols">⬆ 📂</p>
+            <p className="symbols"></p>
+            <p className="texts">Charger</p>
+          </ColumnRight>
+        </Container>
+      </Section>
     </div>
   );
 }
