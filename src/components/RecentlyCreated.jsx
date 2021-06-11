@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 const CapsulePreview = styled.div`
   background-color: blue;
-  width: 40%;
-  height: 100px;
   margin: 10px;
   display: flex;
   justify-content: center;
