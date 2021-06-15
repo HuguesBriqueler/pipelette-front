@@ -19,8 +19,8 @@ function NavBar() {
           <ul>
             <li>{linkTo("/", "Accueil")}</li>
             <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/create", "Créer")}</li>
-            <li>{linkTo("/library", "Bibliothèque")}</li>
+            <li>{linkTo("/create", "Studio")}</li>
+            <li>{linkTo("/library", "Playlist")}</li>
             <li>{linkTo("/register", "S'inscrire")}</li>
           </ul>
         </div>
