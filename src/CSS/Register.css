@@ -1,6 +1,5 @@
 .wrapper {
   background-color: #ffded4;
-
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
@@ -27,13 +26,4 @@
   border: solid 1px black;
   grid-column: 2;
   grid-row: 3;
-}
-
-input {
-}
-
-label {
-}
-
-.bothInputs {
 }

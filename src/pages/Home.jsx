@@ -15,7 +15,7 @@ function Home() {
       <ReactPlayer
         className="VideoPlayer"
         controls
-        width="100vw"
+        width="auto"
         url={videos[currentVideoIndex]}
       />
       <button
