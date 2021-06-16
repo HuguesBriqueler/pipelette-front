@@ -6,6 +6,7 @@ import Home from "../pages/Home.jsx";
 import Library from "../pages/Library.jsx";
 import Profile from "../pages/Profile.jsx";
 import Register from "../pages/Register.jsx";
+import Login from "../pages/Login.jsx";
 
 function NavRoutes() {
   const routeTo = (path, componentDisplayed) => (
@@ -16,7 +17,7 @@ function NavRoutes() {
     <>
       {routeTo("/", Home)} {routeTo("/profile", Profile)}
       {routeTo("/create", Create)} {routeTo("/library", Library)}
-      {routeTo("/register", Register)}
+      {routeTo("/register", Register)} {routeTo("/login", Login)}
     </>
   );
 }

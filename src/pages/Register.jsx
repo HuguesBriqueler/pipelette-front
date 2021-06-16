@@ -10,14 +10,11 @@ function Register() {
       className="wrapper"
       onSubmit={(event) => {
         event.preventDefault();
-        alert("Your button is working");
 
         const user = {
           email: emailInput.current.value,
           password: passwordInput.current.value,
         };
-
-        const url = "http://localhost:5000/users";
 
         console.log(user);
 
@@ -28,6 +25,7 @@ function Register() {
           },
           body: JSON.stringify(user),
         };
+        const url = "http://localhost:5000/users";
         fetch(url, config);
       }}
     >
@@ -35,30 +33,18 @@ function Register() {
         <label htmlFor="email" placeholder="enteryourmailhere@gmail.com">
           Email:
         </label>
-        <input
-          className="border border-black"
-          ref={emailInput}
-          type="email"
-          name="email"
-          id="email"
-        />
+        <input ref={emailInput} type="email" name="email" id="email" />
       </div>
       <div className="password">
         <label htmlFor="password">Mot de passe:</label>
         <input
-          className="border border-black"
           ref={passwordInput}
           type="password"
           name="password"
           id="password"
         />
       </div>
-      <button
-        className="okButton col-start-3 row-start-1 row-span-2"
-        type="submit"
-      >
-        Valider
-      </button>
+      <button className="okButton">Valider</button>
     </form>
   );
 }
