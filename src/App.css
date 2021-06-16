@@ -1,12 +1,53 @@
+:root {
+  font-size: 16px;
+  font-family: "Josefin Slab", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 * {
-  text-align: center;
   list-style: none;
   text-decoration: none;
   margin: 0;
-  font-size: 1.1rem;
-  font-family: "Josefin Slab", serif;
+  
 }
 
+main {
+  padding: 1rem;
+}
 a {
   color: inherit;
+}
+
+.button {
+  font-size: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: sans-serif;
+  --hue: 356;
+  --saturation: 58.4%;
+  --lightness: 55.7%;
+  background: hsl(var(--hue), var(--saturation), var(--lightness));
+  color: #ffffff;
+}
+
+.button:hover,
+.button:focus {
+  --lightness: 70%;
+}
+
+.button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
 }
