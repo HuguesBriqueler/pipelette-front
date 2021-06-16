@@ -1,7 +1,16 @@
 
+.VideoPlayer {
+    box-shadow: 10px 10px 2px 1px rgba(255,222,212, 2);
+}
 
-.Previous {
-    content: "<-";
-    min-height: 1rem;
-    min-width: 1rem;
+.title {
+    text-align: center;
+    font-size: 3rem;
+    color:#D04C55;
+}
+
+.slogan {
+    padding: 2rem;
+    font-size: 1rem;
+    color: gray;
 }
