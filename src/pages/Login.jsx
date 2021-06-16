@@ -1,8 +1,20 @@
 import React, { useRef } from "react";
 
 function Login() {
+  const [isLogged, setIsLogged] = React.useState(false);
+  const [authentificationToken, setAuthentificationToken] = React.useState("");
   const emailInput = useRef();
   const passwordInput = useRef();
+
+  if (isLogged === true) {
+    return (
+      <>
+        <h1>Nice ! You just logged to your Pipelette account !</h1>
+        <h2>{authentificationToken}</h2>
+      </>
+    );
+  }
+
   return (
     <>
       <h1>Bienvenue sur la page de conexion !</h1>
@@ -26,7 +38,14 @@ function Login() {
             body: JSON.stringify(user),
           };
           const url = "http://localhost:5000/users/login";
-          fetch(url, config);
+          fetch(url, config)
+            .then((res) => res.json())
+            .then((data) => {
+              const { token } = data;
+              console.log(token);
+              setAuthentificationToken(token);
+              setIsLogged(true);
+            });
         }}
       >
         <div className="email">
