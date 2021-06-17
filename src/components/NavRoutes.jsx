@@ -14,11 +14,11 @@ function NavRoutes() {
   );
 
   return (
-    <>
+    <main>
       {routeTo("/", Home)} {routeTo("/profile", Profile)}
       {routeTo("/create", Create)} {routeTo("/library", Library)}
       {routeTo("/register", Register)} {routeTo("/login", Login)}
-    </>
+    </main>
   );
 }
 

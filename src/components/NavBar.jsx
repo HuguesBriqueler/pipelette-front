@@ -15,7 +15,7 @@ function NavBar() {
   return (
     <>
       <Router>
-        <div className="navBar">
+        <nav className="navBar">
           <ul>
             <li>{linkTo("/", "Accueil")}</li>
             <li>{linkTo("/profile", "Profil")}</li>
@@ -24,7 +24,7 @@ function NavBar() {
             <li>{linkTo("/register", "S'inscrire")}</li>
             <li>{linkTo("/login", "Connexion")}</li>
           </ul>
-        </div>
+        </nav>
         <Switch>
           <NavRoutes />
         </Switch>
