@@ -15,9 +15,12 @@ function NavRoutes() {
 
   return (
     <>
-      {routeTo("/", Home)} {routeTo("/profile", Profile)}
-      {routeTo("/create", Create)} {routeTo("/library", Library)}
-      {routeTo("/register", Register)} {routeTo("/login", Login)}
+      {routeTo("/", Home)}
+      {routeTo("/profile", Profile)}
+      {routeTo("/create", Create)}
+      {routeTo("/library", Library)}
+      {routeTo("/register", Register)}
+      {routeTo("/login", Login)}
     </>
   );
 }

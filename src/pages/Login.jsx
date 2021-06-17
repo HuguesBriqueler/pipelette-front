@@ -1,22 +1,24 @@
 import React, { useRef } from "react";
+import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
 
 function Login() {
-  const [isLogged, setIsLogged] = React.useState();
   const emailInput = useRef();
   const passwordInput = useRef();
 
-  if (isLogged != null) {
+  const { authentication, setAuthentication } = useAuthentication();
+
+  if (authentication != null) {
     return (
       <>
         <h1>Nice ! You just logged to your Pipelette account !</h1>
-        <h2>{isLogged}</h2>
+        <h2>{authentication}</h2>
       </>
     );
   }
 
   return (
     <>
-      <h1>Bienvenue sur la page de conexion !</h1>
+      <h1>Bienvenue sur la page de connexion !</h1>
       <form
         className="wrapper"
         onSubmit={(event) => {
@@ -42,7 +44,7 @@ function Login() {
             .then((data) => {
               const { token } = data;
               console.log(token);
-              setIsLogged(token);
+              setAuthentication(token);
             });
         }}
       >

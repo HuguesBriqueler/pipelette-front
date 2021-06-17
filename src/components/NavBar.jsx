@@ -22,7 +22,7 @@ function NavBar() {
             <li>{linkTo("/create", "Studio")}</li>
             <li>{linkTo("/library", "Playlist")}</li>
             <li>{linkTo("/register", "S'inscrire")}</li>
-            <li>{linkTo("/login", "Connexion")}</li>
+            <li>{linkTo("/login", "Se connecter")}</li>
           </ul>
         </div>
         <Switch>
