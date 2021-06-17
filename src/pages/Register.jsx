@@ -11,6 +11,9 @@ function Register() {
       className="wrapper"
       onSubmit={(event) => {
         if (
+          emailInput.current.value !== "" &&
+          passwordInput.current.value !== "" &&
+          confirmPasswordInput.current.value !== "" &&
           passwordInput.current.value === confirmPasswordInput.current.value
         ) {
           event.preventDefault();
@@ -34,6 +37,12 @@ function Register() {
             body: JSON.stringify(user),
           };
           fetch(url, config);
+        } else if (emailInput.current.value === "") {
+          alert("Email non indiqué");
+        } else if (passwordInput.current.value === "") {
+          alert("Password non indiqué");
+        } else if (confirmPasswordInput.current.value === "") {
+          alert("Confirmation de Password non indiqué");
         } else {
           alert("Mot de passe différent !");
         }
