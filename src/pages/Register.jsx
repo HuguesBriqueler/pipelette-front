@@ -29,14 +29,19 @@ function Register() {
         fetch(url, config);
       }}
     >
-      <div className="email">
-        <label htmlFor="email" placeholder="enteryourmailhere@gmail.com">
-          Email:
-        </label>
-        <input ref={emailInput} type="email" name="email" id="email" />
+      <div className="form-div">
+        <label htmlFor="email">Email :</label>
+        <input
+          className="border border-black"
+          ref={emailInput}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enteryourmailhere@gmail.com"
+        />
       </div>
-      <div className="password">
-        <label htmlFor="password">Mot de passe:</label>
+      <div className="form-div">
+        <label htmlFor="password">Mot de passe :</label>
         <input
           ref={passwordInput}
           type="password"
@@ -44,7 +49,21 @@ function Register() {
           id="password"
         />
       </div>
-      <button className="okButton">Valider</button>
+      <div className="form-div">
+        <label htmlFor="password">Confirmation du mot de passe :</label>
+        <input
+          className="border border-black"
+          ref={passwordInput}
+          type="password"
+          name="password"
+          id="password"
+        />
+      </div>
+      <div className="form-div">
+        <button className="button okButton" type="submit">
+          Envoyer
+        </button>
+      </div>
     </form>
   );
 }
