@@ -4,31 +4,48 @@ import "../CSS/Register.css";
 function Register() {
   const emailInput = useRef();
   const passwordInput = useRef();
+  const confirmPasswordInput = useRef();
 
   return (
     <form
       className="wrapper"
       onSubmit={(event) => {
-        event.preventDefault();
-        alert("Your button is working");
+        if (
+          emailInput.current.value !== "" &&
+          passwordInput.current.value !== "" &&
+          confirmPasswordInput.current.value !== "" &&
+          passwordInput.current.value === confirmPasswordInput.current.value
+        ) {
+          event.preventDefault();
+          alert("Your button is working");
 
-        const user = {
-          email: emailInput.current.value,
-          password: passwordInput.current.value,
-        };
+          const user = {
+            email: emailInput.current.value,
+            password: passwordInput.current.value,
+            confirmPassword: confirmPasswordInput.current.value,
+          };
 
-        const url = "http://localhost:5000/users";
+          const url = "http://localhost:5000/users";
 
-        console.log(user);
+          console.log(user);
 
-        const config = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        };
-        fetch(url, config);
+          const config = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          };
+          fetch(url, config);
+        } else if (emailInput.current.value === "") {
+          alert("Email non indiqué");
+        } else if (passwordInput.current.value === "") {
+          alert("Password non indiqué");
+        } else if (confirmPasswordInput.current.value === "") {
+          alert("Confirmation de Password non indiqué");
+        } else {
+          alert("Mot de passe différent !");
+        }
       }}
     >
       <div className="form-div">
@@ -53,13 +70,13 @@ function Register() {
         />
       </div>
       <div className="form-div">
-        <label htmlFor="password">Confirmation du mot de passe :</label>
+        <label htmlFor="confirmPassword">Confirmation du mot de passe :</label>
         <input
           className="border border-black"
-          ref={passwordInput}
+          ref={confirmPasswordInput}
           type="password"
-          name="password"
-          id="password"
+          name="confirmPassword"
+          id="confirmPassword"
         />
       </div>
       <div className="form-div">
