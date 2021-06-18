@@ -22,15 +22,24 @@ function NavBar() {
           </ul>
           <ul className="navBarFooterUl">
             <li>
-              <img src="https://img.icons8.com/windows/32/000000/home.png" />
+              {linkTo(
+                "/",
+                <img src="https://img.icons8.com/windows/32/000000/home.png" />
+              )}
               {linkTo("/", "Accueil")}
             </li>
             <li>
-              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
+              {linkTo(
+                "/create",
+                <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
+              )}
               {linkTo("/create", "Studio")}
             </li>
             <li>
-              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
+              {linkTo(
+                "/library",
+                <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
+              )}
               {linkTo("/library", "Playlist")}
             </li>
           </ul>
