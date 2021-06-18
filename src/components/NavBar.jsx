@@ -5,9 +5,9 @@ import NavRoutes from "./NavRoutes.jsx";
 import "../CSS/NavBar.css";
 
 function NavBar() {
-  const linkTo = (path, componentName) => (
+  const linkTo = (path, content) => (
     <NavLink activeClassName="current" className="link" exact to={path}>
-      {componentName}
+      {content}
     </NavLink>
   );
 
@@ -22,16 +22,31 @@ function NavBar() {
           </ul>
           <ul className="navBarFooterUl">
             <li>
-              <img src="https://img.icons8.com/windows/32/000000/home.png" />
-              {linkTo("/", "Accueil")}
+              {linkTo(
+                "/",
+                <>
+                  <img src="https://img.icons8.com/windows/32/000000/home.png" />
+                  Accueil
+                </>
+              )}
             </li>
             <li>
-              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
-              {linkTo("/create", "Studio")}
+              {linkTo(
+                "/create",
+                <>
+                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
+                  Studio
+                </>
+              )}
             </li>
             <li>
-              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
-              {linkTo("/library", "Playlist")}
+              {linkTo(
+                "/library",
+                <>
+                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
+                  Playlist
+                </>
+              )}
             </li>
           </ul>
         </nav>
