@@ -1,0 +1,17 @@
+.audio-react-recorder__canvas {
+    max-width: 100%;
+}
+
+.recordButtons {
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+.recordButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#audioInstructions {
+    color: gray;
+}
