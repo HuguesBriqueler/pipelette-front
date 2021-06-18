@@ -38,13 +38,13 @@ function IsNotLogged() {
             });
         }}
       >
-        <div className="email">
+        <div className="form-div">
           <label htmlFor="email" placeholder="youremail@gmail.com">
             Email:{" "}
           </label>
           <input ref={emailInput} type="email" name="email" id="email" />
         </div>
-        <div className="password">
+        <div className="form-div">
           <label htmlFor="password">Mot de passe: </label>
           <input
             ref={passwordInput}
@@ -53,7 +53,9 @@ function IsNotLogged() {
             id="password"
           />
         </div>
-        <button>Valider</button>
+        <div className="form-div">
+          <button className="button okButton">Valider</button>
+        </div>
       </form>
     </>
   );
