@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
 import NavRoutes from "./NavRoutes.jsx";
-import imgMicro from "../assets/micro.jpg";
-import playlist from "../assets/playlist.jpg";
-import home from "../assets/home.jpg";
+
 import "../CSS/NavBar.css";
 
 function NavBar() {
@@ -24,15 +22,15 @@ function NavBar() {
           </ul>
           <ul className="navBarFooterUl">
             <li>
-              <img src={home} />
+              <img src="https://img.icons8.com/windows/32/000000/home.png" />
               {linkTo("/", "Accueil")}
             </li>
             <li>
-              <img src={imgMicro} />
+              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
               {linkTo("/create", "Studio")}
             </li>
             <li>
-              <img src={playlist} />
+              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
               {linkTo("/library", "Playlist")}
             </li>
           </ul>
