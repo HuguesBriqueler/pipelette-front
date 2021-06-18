@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
-
 import NavRoutes from "./NavRoutes.jsx";
 
 import "../CSS/NavBar.css";
@@ -15,13 +14,25 @@ function NavBar() {
   return (
     <>
       <Router>
-        <nav className="navBar">
-          <ul>
-            <li>{linkTo("/", "Accueil")}</li>
+        <nav>
+          <ul className="navBarUl">
             <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/create", "Studio")}</li>
-            <li>{linkTo("/library", "Playlist")}</li>
             <li>{linkTo("/register", "S'inscrire")}</li>
+            <li>{linkTo("/login", "Se connecter")}</li>
+          </ul>
+          <ul className="navBarFooterUl">
+            <li>
+              <img src="https://img.icons8.com/windows/32/000000/home.png" />
+              {linkTo("/", "Accueil")}
+            </li>
+            <li>
+              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
+              {linkTo("/create", "Studio")}
+            </li>
+            <li>
+              <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
+              {linkTo("/library", "Playlist")}
+            </li>
           </ul>
         </nav>
         <Switch>

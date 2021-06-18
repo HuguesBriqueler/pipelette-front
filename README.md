@@ -1,4 +1,4 @@
-# reims-js-2103-project3-pipelette-back
+# reims-js-2103-project3-pipelette-front
 
 Project Pipelette
 
