@@ -10,6 +10,7 @@ class Create extends React.Component {
     this.state = {
       recordState: null,
       audioData: null,
+      isRecording: false,
     };
   }
 
@@ -41,11 +42,54 @@ class Create extends React.Component {
   render() {
     const { recordState } = this.state;
 
+    const startRecording = () => {
+      this.setState({ isRecording: !this.state.isRecording });
+    };
+
     return (
       <div>
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-        <button type="button"></button>
+        <button type="button" onClick={() => startRecording()}>
+          Enregitrez votre capsule sonore
+        </button>
+        {this.state.isRecording && (
+          <div>
+            <AudioReactRecorder
+              state={recordState}
+              onStop={this.onStop}
+              backgroundColor="rgb(255,255,255)"
+              foregroundColor="#f5bbb7"
+              className="audiorecord"
+            />
+            <audio
+              id="audio"
+              controls
+              src={this.state.audioData ? this.state.audioData.url : null}
+            ></audio>
+            <div className="recordButtonsContainer">
+              <button
+                className="recordButtons"
+                id="record"
+                onClick={this.start}
+              >
+                <span role="img" aria-label="play">
+                  &#128308;
+                </span>
+              </button>
+              <button className="recordButtons" id="pause" onClick={this.pause}>
+                <span role="img" aria-label="pause">
+                  &#9612;&#9612;
+                </span>
+              </button>
+              <button className="recordButtons" id="stop" onClick={this.stop}>
+                <span role="img" aria-label="stop">
+                  &#9607;
+                </span>
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

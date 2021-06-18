@@ -20,6 +20,7 @@ function NavBar() {
           <ul className="navBarUl">
             <li>{linkTo("/profile", "Profil")}</li>
             <li>{linkTo("/register", "S'inscrire")}</li>
+            <li>{linkTo("/login", "Se connecter")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>

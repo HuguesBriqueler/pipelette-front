@@ -62,7 +62,6 @@ function Register() {
       <div className="form-div">
         <label htmlFor="password">Mot de passe :</label>
         <input
-          className="border border-black"
           ref={passwordInput}
           type="password"
           name="password"
