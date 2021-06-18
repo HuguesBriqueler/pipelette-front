@@ -1,7 +1,7 @@
 import React from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import "../CSS/RecentCapsules.css";
-import "../CSS/Create.css";
+import "../CSS/Create.scss";
 
 class Create extends React.Component {
   constructor(props) {
@@ -50,9 +50,17 @@ class Create extends React.Component {
       <div>
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-        <button type="button" onClick={() => startRecording()}>
-          Enregitrez votre capsule sonore
-        </button>
+        <div>
+          <section className="portfolio-experiment">
+            <a type="button" onClick={() => startRecording()}>
+              <span className="text">Commencer un enregistrement</span>
+              <span className="line -right"></span>
+              <span className="line -top"></span>
+              <span className="line -left"></span>
+              <span className="line -bottom"></span>
+            </a>
+          </section>
+        </div>
         {this.state.isRecording && (
           <div>
             <AudioReactRecorder
