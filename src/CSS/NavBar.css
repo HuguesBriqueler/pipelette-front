@@ -40,6 +40,8 @@ nav {
   background-color: white;
   padding: 1rem;
   box-sizing: border-box;
+  font-size: 1.4rem;
+  color: #80807e;
 }
 
 .navBarFooterUl li {
@@ -49,8 +51,8 @@ nav {
 }
 
 .navBarFooterUl img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: .5rem;
 }
 
@@ -61,7 +63,7 @@ nav {
     border-top: none;
     font-family: "Josefin Slab", serif;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #80807e;    
     padding: initial; 
   }
