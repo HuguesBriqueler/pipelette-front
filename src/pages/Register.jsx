@@ -10,13 +10,13 @@ function Register() {
     <form
       className="wrapper"
       onSubmit={(event) => {
+        event.preventDefault();
         if (
           emailInput.current.value !== "" &&
           passwordInput.current.value !== "" &&
           confirmPasswordInput.current.value !== "" &&
           passwordInput.current.value === confirmPasswordInput.current.value
         ) {
-          event.preventDefault();
           alert("Your button is working");
 
           const user = {
