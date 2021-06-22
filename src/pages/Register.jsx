@@ -17,7 +17,7 @@ function Register() {
           confirmPasswordInput.current.value !== "" &&
           passwordInput.current.value === confirmPasswordInput.current.value
         ) {
-          alert("Your button is working");
+          alert("You are successfully registered");
 
           const user = {
             email: emailInput.current.value,
