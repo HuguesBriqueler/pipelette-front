@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Library() {
+  const [selectedFile, setSelectedFile] = useState();
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleSubmission = () => {
+    const formData = new FormData();
+    formData.append("File", selectedFile);
+
+    fetch("http://localhost:5000/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Success:", result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
   return (
     <div>
       <h1>Hello from Playlist !</h1>
+      <input type="file" name="file" onChange={changeHandler} />
+      {selectedFile != null ? (
+        <div>
+          <p>Filename: {selectedFile.name}</p>
+          <p>Filetype: {selectedFile.type}</p>
+          <p>Size in bytes: {selectedFile.size}</p>
+          <p>
+            lastModifiedDate:{" "}
+            {new Date(selectedFile.lastModified).toLocaleDateString()}
+          </p>
+        </div>
+      ) : (
+        <p>Select a file to show details</p>
+      )}
+      <div>
+        <button onClick={handleSubmission}>Submit</button>
+      </div>
     </div>
   );
 }
