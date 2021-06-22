@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
 import NavRoutes from "./NavRoutes.jsx";
 
-import "../CSS/NavBar.css";
+import "../../CSS/NavBar.css";
 
 function NavBarNotLogged() {
   const linkTo = (path, content) => (
