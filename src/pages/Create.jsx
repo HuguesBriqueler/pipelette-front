@@ -11,6 +11,7 @@ class Create extends React.Component {
       recordState: null,
       audioData: null,
       isRecording: false,
+      microIsDisplayed: true,
     };
   }
 
@@ -43,17 +44,22 @@ class Create extends React.Component {
     const { recordState } = this.state;
 
     const startRecording = () => {
-      this.setState({ isRecording: !this.state.isRecording });
+      this.setState({
+        isRecording: !this.state.isRecording,
+      });
     };
 
     return (
-      <div>
+      <div className="microphone">
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
         <div>
           <section className="portfolio-experiment">
-            <a type="button" onClick={() => startRecording()}>
-              <span className="text">Commencer un enregistrement</span>
+            <a type="button" id="microphone" onClick={() => startRecording()}>
+              <img
+                id="audioInstructions"
+                src="https://img.icons8.com/wired/64/000000/microphone.png"
+              />
               <span className="line -right"></span>
               <span className="line -top"></span>
               <span className="line -left"></span>
