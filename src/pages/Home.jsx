@@ -16,20 +16,25 @@ function Home() {
         Pour dire Je T&apos;aime, Merci, Félicitations.
       </h2>
       <div className="VideoPlayer">
-        <ReactPlayer controls width="auto" url={videos[currentVideoIndex]} />
+        <ReactPlayer
+          controls
+          width="100%"
+          height="auto"
+          url={videos[currentVideoIndex]}
+        />
         <button
           className="Previous"
           type="button"
           onClick={() => setCurrentVideoIndex(currentVideoIndex - 1)}
         >
-          Previous
+          {"<"}
         </button>
         <button
           className="Next"
           type="button"
           onClick={() => setCurrentVideoIndex(currentVideoIndex + 1)}
         >
-          Next
+          {">"}
         </button>
       </div>
       <p>
