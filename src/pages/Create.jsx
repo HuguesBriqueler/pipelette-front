@@ -43,24 +43,44 @@ class Create extends React.Component {
     const { recordState } = this.state;
 
     const startRecording = () => {
-      this.setState({ isRecording: !this.state.isRecording });
+      this.setState({
+        isRecording: true,
+      });
+    };
+
+    const stopRecording = () => {
+      this.setState({
+        isRecording: false,
+      });
     };
 
     return (
-      <div>
+      <div className="microphone">
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-        <div>
-          <section className="portfolio-experiment">
-            <a type="button" onClick={() => startRecording()}>
-              <span className="text">Commencer un enregistrement</span>
-              <span className="line -right"></span>
-              <span className="line -top"></span>
-              <span className="line -left"></span>
-              <span className="line -bottom"></span>
-            </a>
-          </section>
-        </div>
+        {this.state.isRecording && (
+          <div>
+            <button type="button" onClick={() => stopRecording()}>
+              Annuler
+            </button>
+          </div>
+        )}
+        {!this.state.isRecording && (
+          <div>
+            <section className="portfolio-experiment">
+              <a type="button" id="microphone" onClick={() => startRecording()}>
+                <img
+                  id="audioInstructions"
+                  src="https://img.icons8.com/wired/64/000000/microphone.png"
+                />
+                <span className="line -right"></span>
+                <span className="line -top"></span>
+                <span className="line -left"></span>
+                <span className="line -bottom"></span>
+              </a>
+            </section>
+          </div>
+        )}
         {this.state.isRecording && (
           <div>
             <AudioReactRecorder

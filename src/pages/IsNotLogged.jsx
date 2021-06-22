@@ -8,7 +8,6 @@ function IsNotLogged() {
 
   return (
     <>
-      <h1>Bienvenue sur la page de connexion !</h1>
       <form
         className="wrapper"
         onSubmit={(event) => {
