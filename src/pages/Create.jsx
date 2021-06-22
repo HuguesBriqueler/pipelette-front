@@ -48,10 +48,23 @@ class Create extends React.Component {
       });
     };
 
+    const stopRecording = () => {
+      this.setState({
+        isRecording: false,
+      });
+    };
+
     return (
       <div className="microphone">
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        {this.state.isRecording && (
+          <div>
+            <button type="button" onClick={() => stopRecording()}>
+              Annuler
+            </button>
+          </div>
+        )}
         {!this.state.isRecording && (
           <div>
             <section className="portfolio-experiment">
