@@ -1,61 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
-import NavRoutes from "./NavRoutes.jsx";
+import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
+import NavBarLogged from "./NavBarLogged.jsx";
+import NavBarNotLogged from "./NavBarNotLogged.jsx";
 
 import "../CSS/NavBar.css";
 
 function NavBar() {
-  const linkTo = (path, content) => (
-    <NavLink activeClassName="current" className="link" exact to={path}>
-      {content}
-    </NavLink>
-  );
+  const { authentication } = useAuthentication;
 
-  return (
-    <>
-      <Router>
-        <nav>
-          <ul className="navBarUl">
-            <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/register", "S'inscrire")}</li>
-            <li>{linkTo("/login", "Se connecter")}</li>
-          </ul>
-          <ul className="navBarFooterUl">
-            <li>
-              {linkTo(
-                "/",
-                <>
-                  <img src="https://img.icons8.com/windows/32/000000/home.png" />
-                  Accueil
-                </>
-              )}
-            </li>
-            <li>
-              {linkTo(
-                "/create",
-                <>
-                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
-                  Studio
-                </>
-              )}
-            </li>
-            <li>
-              {linkTo(
-                "/library",
-                <>
-                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
-                  Playlist
-                </>
-              )}
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <NavRoutes />
-        </Switch>
-      </Router>
-    </>
-  );
+  if (authentication != null) {
+    return <NavBarLogged />;
+  }
+  return <NavBarNotLogged />;
 }
 
 export default NavBar;
