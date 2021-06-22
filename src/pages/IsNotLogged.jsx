@@ -1,5 +1,15 @@
 import React, { useRef } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
+
+const CSSCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+`;
 
 function IsNotLogged() {
   const emailInput = useRef();
@@ -8,7 +18,6 @@ function IsNotLogged() {
 
   return (
     <>
-      <h1>Bienvenue sur la page de connexion !</h1>
       <form
         className="wrapper"
         onSubmit={(event) => {
@@ -57,6 +66,14 @@ function IsNotLogged() {
           <button className="button okButton">Valider</button>
         </div>
       </form>
+      <div>
+        <CSSCenter>
+          <p>Pas encore de compte ?</p>
+          <Link to="/register" id="redirectRegisterLink">
+            inscrivez-vous !
+          </Link>
+        </CSSCenter>
+      </div>
     </>
   );
 }

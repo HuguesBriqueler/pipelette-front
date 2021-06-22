@@ -7,6 +7,7 @@ import Playlist from "../../pages/Playlist.jsx";
 import Profile from "../../pages/Profile.jsx";
 import Register from "../../pages/Register.jsx";
 import Login from "../../pages/Login.jsx";
+import Logout from "../Logout.jsx";
 import { useAuthentication } from "../../contexts/AuthenticationContext.jsx";
 
 function NavRoutes() {
@@ -21,8 +22,9 @@ function NavRoutes() {
       {routeTo("/profile", Profile)}
       {routeTo("/create", Create)}
       <Route exact path="/library">
-        {authentication ? { Playlist } : <Redirect to="/register" />}
+        {authentication ? { Playlist } : <Redirect to="/login" />}
       </Route>
+      {routeTo("/logout", Logout)}
       {routeTo("/register", Register)}
       {routeTo("/login", Login)}
     </main>

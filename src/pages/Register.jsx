@@ -80,7 +80,7 @@ function Register() {
       </div>
       <div className="form-div">
         <button className="button okButton" type="submit">
-          Envoyer
+          Enregistrer
         </button>
       </div>
     </form>

@@ -6,7 +6,7 @@ import NavBarNotLogged from "./NavBarNotLogged.jsx";
 import "../../CSS/NavBar.css";
 
 function NavBar() {
-  const { authentication } = useAuthentication;
+  const { authentication } = useAuthentication();
 
   if (authentication != null) {
     return <NavBarLogged />;

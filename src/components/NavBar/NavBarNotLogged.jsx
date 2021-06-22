@@ -16,8 +16,7 @@ function NavBarNotLogged() {
       <Router>
         <nav>
           <ul className="navBarUl">
-            <li>{linkTo("/register", "S'inscrire")}</li>
-            <li>{linkTo("/login", "Se connecter")}</li>
+            <li>{linkTo("/login", "Connexion/Inscription")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>
