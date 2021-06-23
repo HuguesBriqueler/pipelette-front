@@ -55,6 +55,12 @@ nav {
   margin-bottom: .5rem;
 }
 
+#redirectRegisterLink {
+  text-decoration: underline;
+  color: #d4846c;
+  padding-left: 0.3rem;
+}
+
 @media screen and (min-width: 500px) {
   .navBarFooterUl {
     position: initial;

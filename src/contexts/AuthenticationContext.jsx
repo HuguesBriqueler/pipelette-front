@@ -16,7 +16,7 @@ function AuthenticationProvider({ children }) {
 const useAuthentication = () => useContext(AuthContext);
 
 AuthenticationProvider.propTypes = {
-  children: PropTypes.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export { AuthenticationProvider, useAuthentication };
