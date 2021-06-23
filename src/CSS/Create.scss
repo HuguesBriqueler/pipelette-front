@@ -1,29 +1,35 @@
 .audio-react-recorder__canvas {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .recordButtons {
-    background-color: rgba(0,0,0,0);
-    border: none;
+  background-color: rgba(0,0,0,0);
+  border: none;
 }
 
 .recordButtonsContainer {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 h2{
-  margin-bottom: .5rem;
+margin-bottom: .5rem;
 }
 #audioInstructions {
-    color: gray;
+  color: gray;
 }
 .microphone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-/* Hover button scss */
+#cancelButton {
+color:#d04c55;
+padding: .5rem 1rem; 
+background-color: #efdccc;
+border-color: #d04c55;
+margin-top: 2rem;
+}
 
 $thick : 3px;
 $pad : 0.7em;
@@ -32,135 +38,137 @@ $color : #d04c55;
 
 
 .portfolio-experiment {
-  background: #efdccc;
-  border-radius: 50%;
-  box-shadow: 0 0 .5rem 0 gray;
-  
-  a {
-    color: white;
-    padding: $pad $extra;
-    display: inline-block;
-    border: $thick solid transparent;
-    position: relative;
-    font-size: 1.5em;
-    cursor: pointer;
-    letter-spacing: 0.07em;
-    text-align: center;
+background: #efdccc;
+border-radius: 50%;
+border: 2px solid #d04c55;
+box-shadow: 0 0 .5rem 0 gray;
+margin-top: 4rem;
 
-    .text {
-      // padding: 0 0.3em;
-      font-family: proxima-nova, monospace;
-      display: block;
-      transition: transform 0.4s cubic-bezier(.2,0,0,1) 0.4s;
-      color:#d04c55;
-    }
+a {
+  color: white;
+  padding: $pad $extra;
+  display: inline-block;
+  border: $thick solid transparent;
+  position: relative;
+  font-size: 1.5em;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  text-align: center;
 
-    &:after {
-      position: absolute;
-      /*content: '';*/
-      bottom: -$thick;
-      left: 0;
-      border-bottom: solid $thick $color;
-      border-radius: 50%;
-      width: 100%;
-      height: 100%;
-      // z-index: -1;
-      transition: 
-        transform 0.8s cubic-bezier(1,0,.37,1) 0.2s,
-        right 0.2s cubic-bezier(.04,.48,0,1) 0.6s,
-        left 0.4s cubic-bezier(.04,.48,0,1) 0.6s;
-      transform-origin: left;
-    }
+  .text {
+    // padding: 0 0.3em;
+    font-family: proxima-nova, monospace;
+    display: block;
+    transition: transform 0.4s cubic-bezier(.2,0,0,1) 0.4s;
+    color:#d04c55;
+  }
 
+  &:after {
+    position: absolute;
+    /*content: '';*/
+    bottom: -$thick;
+    left: 0;
+    border-bottom: solid $thick $color;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    // z-index: -1;
+    transition: 
+      transform 0.8s cubic-bezier(1,0,.37,1) 0.2s,
+      right 0.2s cubic-bezier(.04,.48,0,1) 0.6s,
+      left 0.4s cubic-bezier(.04,.48,0,1) 0.6s;
+    transform-origin: left;
+  }
+
+}
+
+.line {
+  position: absolute;
+  background: $color;
+
+  &.-right,
+  &.-left {
+    width: $thick;
+    bottom: -$thick;
+    top: -$thick;
+    transform: scale3d(1,0,1);
+  }  
+
+  &.-top,
+  &.-bottom {
+    height: $thick;
+    left: -$thick;
+    right: -$thick;
+    transform: scale3d(0,1,1);
+  }
+
+  &.-right {
+    right: -$thick;
+    transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.23s;
+    transform-origin: top;
+  }
+
+  &.-top {
+    top: -$thick;
+    transition: transform 0.08s linear 0.43s;
+    transform-origin: left;
+  }
+
+  &.-left {
+    left: -$thick;
+    transition: transform 0.08s linear 0.51s;
+    transform-origin: bottom;
+  }
+
+  &.-bottom {
+    bottom: -$thick;
+    transition: transform 0.3s cubic-bezier(1,0,.65,1.01);
+    transform-origin: right;
+  }  
+}
+
+a:hover,
+a:active {
+
+  .text {
+    transform: translate3d(0,0,0);
+    transition: transform 0.6s cubic-bezier(.2,0,0,1) 0.4s;
+  }
+
+  &:after {
+    transform: scale3d(0,1,1);
+    right: -$thick;
+    left: -$thick;
+    transform-origin: right;
+    transition: 
+      transform 0.2s cubic-bezier(1,0,.65,1.01) 0.17s,
+      right 0.2s cubic-bezier(1,0,.65,1.01),
+      left 0s 0.3s;
   }
 
   .line {
-    position: absolute;
-    background: $color;
-
-    &.-right,
-    &.-left {
-      width: $thick;
-      bottom: -$thick;
-      top: -$thick;
-      transform: scale3d(1,0,1);
-    }  
-
-    &.-top,
-    &.-bottom {
-      height: $thick;
-      left: -$thick;
-      right: -$thick;
-      transform: scale3d(0,1,1);
-    }
+    transform: scale3d(1,1,1);
 
     &.-right {
-      right: -$thick;
-      transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.23s;
-      transform-origin: top;
-    }
-
-    &.-top {
-      top: -$thick;
-      transition: transform 0.08s linear 0.43s;
-      transform-origin: left;
-    }
-
-    &.-left {
-      left: -$thick;
-      transition: transform 0.08s linear 0.51s;
+      transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.2s;
       transform-origin: bottom;
     }
 
+    &.-top {
+      transition: transform 0.08s linear 0.4s;
+      transform-origin: right;
+    }
+
+    &.-left {
+      transition: transform 0.08s linear 0.48s;
+      transform-origin: top;
+    }
+
     &.-bottom {
-      bottom: -$thick;
-      transition: transform 0.3s cubic-bezier(1,0,.65,1.01);
-      transform-origin: right;
-    }  
+      transition: transform 0.5s cubic-bezier(0,.53,.29,1) 0.56s;
+      transform-origin: left;
+    }
   }
 
-  a:hover,
-  a:active {
-
-    .text {
-      transform: translate3d(0,0,0);
-      transition: transform 0.6s cubic-bezier(.2,0,0,1) 0.4s;
-    }
-
-    &:after {
-      transform: scale3d(0,1,1);
-      right: -$thick;
-      left: -$thick;
-      transform-origin: right;
-      transition: 
-        transform 0.2s cubic-bezier(1,0,.65,1.01) 0.17s,
-        right 0.2s cubic-bezier(1,0,.65,1.01),
-        left 0s 0.3s;
-    }
-
-    .line {
-      transform: scale3d(1,1,1);
-
-      &.-right {
-        transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.2s;
-        transform-origin: bottom;
-      }
-
-      &.-top {
-        transition: transform 0.08s linear 0.4s;
-        transform-origin: right;
-      }
-
-      &.-left {
-        transition: transform 0.08s linear 0.48s;
-        transform-origin: top;
-      }
-
-      &.-bottom {
-        transition: transform 0.5s cubic-bezier(0,.53,.29,1) 0.56s;
-        transform-origin: left;
-      }
-    }
-
-  }
+}
 }

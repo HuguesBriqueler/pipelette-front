@@ -42,6 +42,7 @@ nav {
   box-sizing: border-box;
   font-size: 1.4rem;
   color: #80807e;
+  z-index: 1;
 }
 
 .navBarFooterUl .link {
