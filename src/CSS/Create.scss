@@ -23,6 +23,15 @@ h2{
   align-items: center;
 }
 
+#cancelButton {
+  color:#d04c55;
+  width: 5em;
+  height: 2.6em;
+  background-color: #efdccc;
+  border-color: #d04c55;
+  margin-top: 20%;
+}
+
 /* Hover button scss */
 
 $thick : 3px;
@@ -34,7 +43,9 @@ $color : #d04c55;
 .portfolio-experiment {
   background: #efdccc;
   border-radius: 50%;
+  border: 2px solid #d04c55;
   box-shadow: 0 0 .5rem 0 gray;
+  margin-top: 100%;
   
   a {
     color: white;
