@@ -43,7 +43,7 @@ function NavBarLogged() {
                 "/library",
                 <>
                   <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
-                  Playlist
+                  Mes Audios
                 </>
               )}
             </li>

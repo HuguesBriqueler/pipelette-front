@@ -6,8 +6,9 @@ import Home from "../../pages/Home.jsx";
 import Profile from "../../pages/Profile.jsx";
 import Register from "../../pages/Register.jsx";
 import Login from "../../pages/Login.jsx";
+import Playlist from "../../pages/Playlist.jsx";
 import Logout from "../Logout.jsx";
-import PlaylistIfLogged from "../PlaylistIfLogged.jsx";
+// import PlaylistIfLogged from "../PlaylistIfLogged.jsx";
 
 function NavRoutes() {
   const routeTo = (path, componentDisplayed) => (
@@ -19,7 +20,11 @@ function NavRoutes() {
       {routeTo("/", Home)}
       {routeTo("/profile", Profile)}
       {routeTo("/create", Create)}
-      {routeTo("/library", PlaylistIfLogged)}
+
+      {/* A LIRE: route à remettre pour acceder a playlist que si user logged */}
+
+      {/* {routeTo("/library", PlaylistIfLogged)} */}
+      {routeTo("/library", Playlist)}
       {routeTo("/logout", Logout)}
       {routeTo("/register", Register)}
       {routeTo("/login", Login)}
