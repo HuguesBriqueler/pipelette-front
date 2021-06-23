@@ -60,7 +60,11 @@ class Create extends React.Component {
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
         {this.state.isRecording && (
           <div>
-            <button type="button" onClick={() => stopRecording()}>
+            <button
+              id="cancelButton"
+              type="button"
+              onClick={() => stopRecording()}
+            >
               Annuler
             </button>
           </div>
