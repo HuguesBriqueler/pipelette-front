@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
 import NavRoutes from "./NavRoutes.jsx";
 
-import "../CSS/NavBar.css";
+import "../../CSS/NavBar.css";
 
-function NavBar() {
+function NavBarLogged() {
   const linkTo = (path, content) => (
     <NavLink activeClassName="current" className="link" exact to={path}>
       {content}
@@ -17,8 +17,7 @@ function NavBar() {
         <nav>
           <ul className="navBarUl">
             <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/register", "S'inscrire")}</li>
-            <li>{linkTo("/login", "Se connecter")}</li>
+            <li>{linkTo("/logout", "Deconnexion")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>
@@ -58,4 +57,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBarLogged;
