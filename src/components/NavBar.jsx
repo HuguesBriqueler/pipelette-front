@@ -8,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import NavRoutes from "./NavRoutes.jsx";
 
-import "../../CSS/NavBar.css";
+import "../CSS/NavBar.css";
 
-function NavBarNotLogged() {
+function NavBar() {
   const linkTo = (path, content) => (
     <NavLink activeClassName="current" className="link" exact to={path}>
       {content}
@@ -22,7 +22,9 @@ function NavBarNotLogged() {
       <Router>
         <nav>
           <ul className="navBarUl">
-            <li>{linkTo("/login", "Connexion/Inscription")}</li>
+            <li>{linkTo("/profile", "Profil")}</li>
+            <li>{linkTo("/register", "S'inscrire")}</li>
+            <li>{linkTo("/login", "Se connecter")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>
@@ -62,4 +64,4 @@ function NavBarNotLogged() {
   );
 }
 
-export default NavBarNotLogged;
+export default NavBar;
