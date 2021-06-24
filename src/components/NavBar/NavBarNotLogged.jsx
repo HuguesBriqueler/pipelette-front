@@ -1,16 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMusic,
-  faHome,
-  faMicrophone,
-} from "@fortawesome/free-solid-svg-icons";
 import NavRoutes from "./NavRoutes.jsx";
 
-import "../CSS/NavBar.css";
+import "../../CSS/NavBar.css";
 
-function NavBar() {
+function NavBarNotLogged() {
   const linkTo = (path, content) => (
     <NavLink activeClassName="current" className="link" exact to={path}>
       {content}
@@ -22,16 +16,14 @@ function NavBar() {
       <Router>
         <nav>
           <ul className="navBarUl">
-            <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/register", "S'inscrire")}</li>
-            <li>{linkTo("/login", "Se connecter")}</li>
+            <li>{linkTo("/login", "Connexion/Inscription")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>
               {linkTo(
                 "/",
                 <>
-                  <FontAwesomeIcon className="icon" icon={faHome} />
+                  <img src="https://img.icons8.com/windows/32/000000/home.png" />
                   Accueil
                 </>
               )}
@@ -40,7 +32,7 @@ function NavBar() {
               {linkTo(
                 "/create",
                 <>
-                  <FontAwesomeIcon className="icon" icon={faMicrophone} />
+                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
                   Studio
                 </>
               )}
@@ -49,7 +41,7 @@ function NavBar() {
               {linkTo(
                 "/library",
                 <>
-                  <FontAwesomeIcon className="icon" icon={faMusic} />
+                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
                   Playlist
                 </>
               )}
@@ -64,4 +56,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBarNotLogged;

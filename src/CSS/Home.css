@@ -1,6 +1,26 @@
 
 .VideoPlayer {
     box-shadow: 10px 10px 2px 1px rgba(255,222,212, 2);
+    position: relative;
+}
+
+.Next, .Previous {
+    position: absolute;
+    top:50%;
+    background: rgba(0, 0, 0, 0);
+    border-style: none;
+    color: white;
+    font-size: 2em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.Previous {
+    left: 0;
+}
+
+.Next {
+    right:0;
 }
 
 .title {
@@ -14,3 +34,4 @@
     font-size: 1rem;
     color: gray;
 }
+
