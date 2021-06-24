@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function PlaylistDisplay({ title }) {
   return (
     <div>
-      <h1>{title}</h1>
+      <Link to="/capsules">{title}</Link>
     </div>
   );
 }
