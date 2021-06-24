@@ -1,5 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMusic,
+  faHome,
+  faMicrophone,
+} from "@fortawesome/free-solid-svg-icons";
 import NavRoutes from "./NavRoutes.jsx";
 
 import "../CSS/NavBar.css";
@@ -25,7 +31,7 @@ function NavBar() {
               {linkTo(
                 "/",
                 <>
-                  <img src="https://img.icons8.com/windows/32/000000/home.png" />
+                  <FontAwesomeIcon className="icon" icon={faHome} />
                   Accueil
                 </>
               )}
@@ -34,7 +40,7 @@ function NavBar() {
               {linkTo(
                 "/create",
                 <>
-                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/microphone--v1.png" />
+                  <FontAwesomeIcon className="icon" icon={faMicrophone} />
                   Studio
                 </>
               )}
@@ -43,7 +49,7 @@ function NavBar() {
               {linkTo(
                 "/library",
                 <>
-                  <img src="https://img.icons8.com/fluent-systems-regular/48/000000/playlist.png" />
+                  <FontAwesomeIcon className="icon" icon={faMusic} />
                   Playlist
                 </>
               )}

@@ -66,7 +66,7 @@ nav {
     color: #80807e;    
     padding: initial; 
   }
-  .navBarFooterUl img {
+  .navBarFooterUl .icon {
     display: none;
   }
   .navBarFooterUl li {
