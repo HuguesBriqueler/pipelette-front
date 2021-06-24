@@ -8,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import NavRoutes from "./NavRoutes.jsx";
 
-import "../../CSS/NavBar.css";
+import "../CSS/NavBar.css";
 
-function NavBarLogged() {
+function NavBar() {
   const linkTo = (path, content) => (
     <NavLink activeClassName="current" className="link" exact to={path}>
       {content}
@@ -23,7 +23,8 @@ function NavBarLogged() {
         <nav>
           <ul className="navBarUl">
             <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/logout", "Deconnexion")}</li>
+            <li>{linkTo("/register", "S'inscrire")}</li>
+            <li>{linkTo("/login", "Se connecter")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>
@@ -49,8 +50,7 @@ function NavBarLogged() {
                 "/library",
                 <>
                   <FontAwesomeIcon className="icon" icon={faMusic} />
-                  Mes Audios
-
+                  Playlist
                 </>
               )}
             </li>
@@ -64,4 +64,4 @@ function NavBarLogged() {
   );
 }
 
-export default NavBarLogged;
+export default NavBar;
