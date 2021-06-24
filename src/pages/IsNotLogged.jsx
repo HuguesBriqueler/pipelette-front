@@ -70,7 +70,7 @@ function IsNotLogged() {
         <CSSCenter>
           <p>Pas encore de compte ?</p>
           <Link to="/register" id="redirectRegisterLink">
-            inscrivez-vous !
+            Inscrivez-vous !
           </Link>
         </CSSCenter>
       </div>

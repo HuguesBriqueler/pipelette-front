@@ -21,7 +21,8 @@ function Playlist() {
   if (alreadyHavePlaylist.length === 0) {
     return (
       <h1>
-        Vous n&apos;avez oas encore créé de playliste, veuillez en créer une.
+        Vous n&apos;avez pas encore créé de playlist, veuillez en créer une pour
+        commencer à enregistrer vos premières capsules audios.
       </h1>
     );
   }
