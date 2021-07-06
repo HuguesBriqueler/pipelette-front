@@ -9,6 +9,7 @@ import Login from "../../pages/Login.jsx";
 import Playlist from "../../pages/Playlist.jsx";
 import Logout from "../Logout.jsx";
 import Capsule from "../../pages/Capsule.jsx";
+import CreatePlaylist from "../../pages/CreatePlaylist.jsx";
 
 // import PlaylistIfLogged from "../PlaylistIfLogged.jsx";
 
@@ -34,6 +35,7 @@ function NavRoutes() {
       {routeTo("/register", Register)}
       {routeTo("/login", Login)}
       {routeTo("/capsules", Capsule)}
+      {routeTo("/library/create", CreatePlaylist)}
     </main>
   );
 }
