@@ -44,7 +44,7 @@ class Create extends React.Component {
         console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
-        const url = "http://localhost:5000/toto";
+        const url = "http://localhost:5000/capsule_upload";
         fetch(url, {
           method: "post",
           body: formData,
@@ -117,13 +117,6 @@ class Create extends React.Component {
                 &#9607;
               </button>
             </div>
-            {/* <button
-              id="saveButton"
-              type="button"
-              onClick={() => saveRecording()}
-            >
-              Sauvegarder
-            </button> */}
           </>
         ) : (
           <section className="portfolio-experiment">
