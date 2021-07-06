@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import CapsuleDisplay from "../components/CapsuleDisplay.jsx";
 
 function Playlist() {
   const [alreadyHaveCapsule, setAlreadyHaveCapsule] = useState([]);
+
+  const redirectionToPlaylistUrl = "/library";
+  const history = useHistory();
 
   const url = "http://localhost:5000/capsules";
   const config = {
@@ -31,6 +35,14 @@ function Playlist() {
       {alreadyHaveCapsule.map((capsule) => (
         <CapsuleDisplay key={capsule.id} title={capsule.audio_title} />
       ))}
+      <button
+        type="button"
+        onClick={() => {
+          history.push(redirectionToPlaylistUrl);
+        }}
+      >
+        Retour
+      </button>
     </>
   );
 }
