@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CapsuleDisplay from "../components/CapsuleDisplay.jsx";
 
-function Playlist() {
+function Capsule() {
   const [alreadyHaveCapsule, setAlreadyHaveCapsule] = useState([]);
 
-  const redirectionToPlaylistUrl = "/library";
   const history = useHistory();
+  const { id } = useParams();
 
-  const url = "http://localhost:5000/capsules";
-  const config = {
-    method: "GET",
-  };
+  const url = `http://localhost:5000/playlists/${id}/capsules`;
 
   useEffect(() => {
-    fetch(url, config)
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setAlreadyHaveCapsule(data);
       });
   }, []);
@@ -38,7 +34,7 @@ function Playlist() {
       <button
         type="button"
         onClick={() => {
-          history.push(redirectionToPlaylistUrl);
+          history.push("/library");
         }}
       >
         Retour
@@ -47,4 +43,4 @@ function Playlist() {
   );
 }
 
-export default Playlist;
+export default Capsule;

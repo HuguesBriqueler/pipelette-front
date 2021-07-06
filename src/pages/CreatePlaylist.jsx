@@ -1,7 +1,11 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 function CreatePlaylist() {
   const playlistNameInput = useRef();
+
+  const redirectionToPlaylistUrl = "/library";
+  const history = useHistory();
 
   return (
     <>
@@ -29,6 +33,8 @@ function CreatePlaylist() {
             .then((data) => {
               console.log(data);
             });
+
+          history.push(redirectionToPlaylistUrl);
         }}
       >
         <div className="form-div">

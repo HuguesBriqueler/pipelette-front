@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CreatePlaylist from "./CreatePlaylist.jsx";
-import PlaylistDisplay from "../components/PlaylistDisplay.jsx";
 
 function Playlist() {
   const [alreadyHavePlaylist, setAlreadyHavePlaylist] = useState([]);
@@ -30,8 +29,10 @@ function Playlist() {
 
   return (
     <>
-      {alreadyHavePlaylist.map((playlist) => (
-        <PlaylistDisplay key={playlist.id} title={playlist.title} />
+      {alreadyHavePlaylist.map(({ id, title }) => (
+        <Link key={id} to={`/playlists/${id}`} className="link">
+          {title}
+        </Link>
       ))}
       <button
         type="button"

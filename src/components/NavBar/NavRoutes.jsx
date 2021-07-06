@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import Create from "../../pages/Studio.jsx";
+import Studio from "../../pages/Studio.jsx";
 import Home from "../../pages/Home.jsx";
 import Profile from "../../pages/Profile.jsx";
 import Register from "../../pages/Register.jsx";
@@ -22,7 +22,7 @@ function NavRoutes() {
     <main>
       {routeTo("/", Home)}
       {routeTo("/profile", Profile)}
-      {routeTo("/create", Create)}
+      {routeTo("/create", Studio)}
 
       {/* A LIRE: route qui affiche le composant PlaylistIfLogged
       à remettre pour accèder a playlist que si user logged et mettre
@@ -34,8 +34,9 @@ function NavRoutes() {
       {routeTo("/logout", Logout)}
       {routeTo("/register", Register)}
       {routeTo("/login", Login)}
-      {routeTo("/capsules", Capsule)}
+      {routeTo("/playlists/:id", Capsule)}
       {routeTo("/library/create", CreatePlaylist)}
+      {routeTo("/playlists/:playlistId/create", Studio)}
     </main>
   );
 }
