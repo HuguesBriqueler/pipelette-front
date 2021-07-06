@@ -11,6 +11,7 @@ class Create extends React.Component {
       recordState: null,
       audioData: null,
       isRecording: false,
+      url: null,
     };
   }
 
@@ -36,7 +37,19 @@ class Create extends React.Component {
     this.setState({
       audioData: data,
     });
-    console.log("onStop: audio data", data);
+    console.log("url", data.url);
+    fetch(data.url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        console.log(blob);
+        const formData = new FormData();
+        formData.append("blob", blob);
+        const url = "http://localhost:5000/capsule_upload";
+        fetch(url, {
+          method: "post",
+          body: formData,
+        });
+      });
   };
 
   render() {
@@ -55,11 +68,11 @@ class Create extends React.Component {
     };
 
     return (
-      <div className="microphone">
+      <section className="microphone">
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-        {this.state.isRecording && (
-          <div>
+        {this.state.isRecording ? (
+          <>
             <button
               id="cancelButton"
               type="button"
@@ -67,26 +80,6 @@ class Create extends React.Component {
             >
               Annuler
             </button>
-          </div>
-        )}
-        {!this.state.isRecording && (
-          <div>
-            <section className="portfolio-experiment">
-              <a type="button" id="microphone" onClick={() => startRecording()}>
-                <img
-                  id="audioInstructions"
-                  src="https://img.icons8.com/wired/64/000000/microphone.png"
-                />
-                <span className="line -right"></span>
-                <span className="line -top"></span>
-                <span className="line -left"></span>
-                <span className="line -bottom"></span>
-              </a>
-            </section>
-          </div>
-        )}
-        {this.state.isRecording && (
-          <div>
             <AudioReactRecorder
               state={recordState}
               onStop={this.onStop}
@@ -94,35 +87,52 @@ class Create extends React.Component {
               foregroundColor="#f5bbb7"
               className="audiorecord"
             />
-            <audio
-              id="audio"
-              controls
-              src={this.state.audioData ? this.state.audioData.url : null}
-            ></audio>
+            <audio id="audio" controls src={this.state.audioData?.url}></audio>
             <div className="recordButtonsContainer">
               <button
                 className="recordButtons"
                 id="record"
                 onClick={this.start}
+                role="img"
+                aria-label="play"
               >
-                <span role="img" aria-label="play">
-                  &#128308;
-                </span>
+                &#128308;
               </button>
-              <button className="recordButtons" id="pause" onClick={this.pause}>
-                <span role="img" aria-label="pause">
-                  &#9612;&#9612;
-                </span>
+              <button
+                className="recordButtons"
+                id="pause"
+                onClick={this.pause}
+                role="img"
+                aria-label="pause"
+              >
+                &#9612;&#9612;
               </button>
-              <button className="recordButtons" id="stop" onClick={this.stop}>
-                <span role="img" aria-label="stop">
-                  &#9607;
-                </span>
+              <button
+                className="recordButtons"
+                id="stop"
+                onClick={this.stop}
+                role="img"
+                aria-label="stop"
+              >
+                &#9607;
               </button>
             </div>
-          </div>
+          </>
+        ) : (
+          <section className="portfolio-experiment">
+            <a type="button" id="microphone" onClick={() => startRecording()}>
+              <img
+                id="audioInstructions"
+                src="https://img.icons8.com/wired/64/000000/microphone.png"
+              />
+              <span className="line -right"></span>
+              <span className="line -top"></span>
+              <span className="line -left"></span>
+              <span className="line -bottom"></span>
+            </a>
+          </section>
         )}
-      </div>
+      </section>
     );
   }
 }
