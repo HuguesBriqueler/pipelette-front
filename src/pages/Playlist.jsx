@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CreatePlaylist from "../components/CreatePlaylist.jsx";
 import PlaylistDisplay from "../components/PlaylistDisplay.jsx";
 
 function Playlist() {
@@ -19,12 +20,7 @@ function Playlist() {
   }, []);
 
   if (alreadyHavePlaylist.length === 0) {
-    return (
-      <h1>
-        Vous n&apos;avez pas encore créé de playlist, veuillez en créer une pour
-        commencer à enregistrer vos premières capsules audios.
-      </h1>
-    );
+    return <CreatePlaylist />;
   }
 
   return (
