@@ -5,6 +5,7 @@
 
 .link {
   transition: color 0.4s;
+  display: block;
 }
 
 nav {
@@ -26,7 +27,7 @@ nav {
 }
 
 .navBarUl li {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .navBarFooterUl {
@@ -53,7 +54,7 @@ nav {
 .navBarFooterUl img {
   width: 25px;
   height: 25px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 #redirectRegisterLink {
@@ -70,8 +71,8 @@ nav {
     font-family: "Josefin Slab", serif;
     font-weight: 400;
     font-size: 1.3rem;
-    color: #80807e;    
-    padding: initial; 
+    color: #80807e;
+    padding: initial;
   }
   .navBarFooterUl .icon {
     display: none;

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import PlaylistDisplay from "../components/PlaylistDisplay.jsx";
+import { Link, useHistory } from "react-router-dom";
+import CreatePlaylist from "./CreatePlaylist.jsx";
 
 function Playlist() {
   const [alreadyHavePlaylist, setAlreadyHavePlaylist] = useState([]);
+
+  const redirectionToCreatePlaylistUrl = "library/create";
+
+  const history = useHistory();
 
   const url = "http://localhost:5000/playlists";
   const config = {
@@ -19,19 +24,25 @@ function Playlist() {
   }, []);
 
   if (alreadyHavePlaylist.length === 0) {
-    return (
-      <h1>
-        Vous n&apos;avez pas encore créé de playlist, veuillez en créer une pour
-        commencer à enregistrer vos premières capsules audios.
-      </h1>
-    );
+    return <CreatePlaylist />;
   }
 
   return (
     <>
-      {alreadyHavePlaylist.map((playlist) => (
-        <PlaylistDisplay key={playlist.id} title={playlist.title} />
+      {alreadyHavePlaylist.map(({ id, title }) => (
+        <Link key={id} to={`/playlists/${id}`} className="link">
+          {title}
+        </Link>
       ))}
+      <button
+        type="button"
+        className="button okButton"
+        onClick={() => {
+          history.push(redirectionToCreatePlaylistUrl);
+        }}
+      >
+        Créer une nouvelle playlist
+      </button>
     </>
   );
 }

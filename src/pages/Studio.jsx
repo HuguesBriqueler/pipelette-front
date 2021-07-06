@@ -2,8 +2,9 @@ import React from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
+import PropTypes from "prop-types";
 
-class Create extends React.Component {
+class Studio extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,6 +14,10 @@ class Create extends React.Component {
       isRecording: false,
       url: null,
     };
+    console.log(
+      "I am here to record in playlist:",
+      this.props.match.params.playlistId
+    );
   }
 
   start = () => {
@@ -137,4 +142,12 @@ class Create extends React.Component {
   }
 }
 
-export default Create;
+Studio.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      playlistId: PropTypes.number,
+    }).isRequired,
+  }).isRequired,
+};
+
+export default Studio;
