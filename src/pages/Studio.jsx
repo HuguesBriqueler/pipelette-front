@@ -3,6 +3,7 @@ import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
 import PropTypes from "prop-types";
+import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
 
 class Studio extends React.Component {
   constructor(props) {
@@ -13,11 +14,12 @@ class Studio extends React.Component {
       audioData: null,
       isRecording: false,
       url: null,
+      canBeSaved: false,
     };
-    console.log(
-      "I am here to record in playlist:",
-      this.props.match.params.playlistId
-    );
+    // console.log(
+    //   "I am here to record in playlist:",
+    //   this.props.match.params.playlistId
+    // );
   }
 
   start = () => {
@@ -43,9 +45,13 @@ class Studio extends React.Component {
   onStop = (data) => {
     this.setState({
       audioData: data,
+      canBeSaved: true,
     });
-    console.log("url", data.url);
-    fetch(data.url)
+    // console.log("url", data.url);
+  };
+
+  onSave = () => {
+    fetch(this.state.audioData.url)
       .then((response) => response.blob())
       .then((blob) => {
         console.log(blob);
@@ -54,9 +60,20 @@ class Studio extends React.Component {
         const url = "http://localhost:5000/capsule_upload";
         fetch(url, {
           method: "post",
+          headers: {
+            Authorization: `Bearer ${this.context.authentication}`,
+          },
           body: formData,
         });
       });
+    console.log("url", this.state.audioData.url);
+  };
+
+  onDelete = () => {
+    this.setState({
+      canBeSaved: false,
+      recordState: null,
+    });
   };
 
   render() {
@@ -99,6 +116,16 @@ class Studio extends React.Component {
             </a>
           </section>
         )}
+        {this.state.canBeSaved && (
+          <>
+            <button className="saveButton" onClick={this.onSave}>
+              Sauvegarder
+            </button>
+            <button className="deleteButton" onClick={this.onDelete}>
+              Supprimer
+            </button>
+          </>
+        )}
         <audio id="audio" controls src={this.state.audioData?.url}></audio>
       </section>
     );
@@ -112,5 +139,7 @@ Studio.propTypes = {
     }).isRequired,
   }).isRequired,
 };
+
+Studio.contextType = AuthenticationContext;
 
 export default Studio;
