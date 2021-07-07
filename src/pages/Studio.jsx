@@ -46,7 +46,7 @@ class Create extends React.Component {
         console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
-        const url = "http://localhost:5000/capsule_upload";
+        const url = "http://localhost:5000/:id/capsule_upload";
         fetch(url, {
           method: "post",
           body: formData,
