@@ -6,7 +6,7 @@ import {
   faHome,
   faMicrophone,
 } from "@fortawesome/free-solid-svg-icons";
-import NavRoutes from "./NavRoutes.jsx";
+import NavRoutes from "./NavBar/NavRoutes.jsx";
 
 import "../CSS/NavBar.css";
 

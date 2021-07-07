@@ -23,6 +23,7 @@ class Studio extends React.Component {
   start = () => {
     this.setState({
       recordState: RecordState.START,
+      isRecording: true,
     });
   };
 
@@ -35,6 +36,7 @@ class Studio extends React.Component {
   stop = () => {
     this.setState({
       recordState: RecordState.STOP,
+      isRecording: false,
     });
   };
 
@@ -60,72 +62,32 @@ class Studio extends React.Component {
   render() {
     const { recordState } = this.state;
 
-    const startRecording = () => {
-      this.setState({
-        isRecording: true,
-      });
-    };
-
-    const stopRecording = () => {
-      this.setState({
-        isRecording: false,
-      });
-    };
-
     return (
       <section className="microphone">
         <h1>Studio Pipelette</h1>
         <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        <AudioReactRecorder
+          state={recordState}
+          onStop={this.onStop}
+          backgroundColor="rgb(255,255,255)"
+          foregroundColor="#f5bbb7"
+          className="audiorecord"
+        />
         {this.state.isRecording ? (
           <>
-            <button
-              id="cancelButton"
-              type="button"
-              onClick={() => stopRecording()}
-            >
-              Annuler
-            </button>
-            <AudioReactRecorder
-              state={recordState}
-              onStop={this.onStop}
-              backgroundColor="rgb(255,255,255)"
-              foregroundColor="#f5bbb7"
-              className="audiorecord"
-            />
-            <audio id="audio" controls src={this.state.audioData?.url}></audio>
-            <div className="recordButtonsContainer">
-              <button
-                className="recordButtons"
-                id="record"
-                onClick={this.start}
-                role="img"
-                aria-label="play"
-              >
-                &#128308;
-              </button>
-              <button
-                className="recordButtons"
-                id="pause"
-                onClick={this.pause}
-                role="img"
-                aria-label="pause"
-              >
-                &#9612;&#9612;
-              </button>
-              <button
-                className="recordButtons"
-                id="stop"
-                onClick={this.stop}
-                role="img"
-                aria-label="stop"
-              >
-                &#9607;
-              </button>
-            </div>
+            <section className="portfolio-experiment">
+              <a type="button" id="stop" onClick={this.stop}>
+                <p>STOP</p>
+                <span className="line -right"></span>
+                <span className="line -top"></span>
+                <span className="line -left"></span>
+                <span className="line -bottom"></span>
+              </a>
+            </section>
           </>
         ) : (
           <section className="portfolio-experiment">
-            <a type="button" id="microphone" onClick={() => startRecording()}>
+            <a type="button" id="microphone" onClick={this.start}>
               <img
                 id="audioInstructions"
                 src="https://img.icons8.com/wired/64/000000/microphone.png"
@@ -137,6 +99,7 @@ class Studio extends React.Component {
             </a>
           </section>
         )}
+        <audio id="audio" controls src={this.state.audioData?.url}></audio>
       </section>
     );
   }
