@@ -33,6 +33,7 @@ function Capsule() {
       ))}
       <button
         type="button"
+        className="button okButton"
         onClick={() => {
           history.push("/library");
         }}
@@ -41,6 +42,7 @@ function Capsule() {
       </button>
       <button
         type="button"
+        className="button okButton"
         onClick={() => {
           history.push(`/playlists/${id}/create`);
         }}

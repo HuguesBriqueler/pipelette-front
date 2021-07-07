@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: #ffded4;
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 0.25rem 0 #767675;
+}
+
+.playlistLink {
+  width: 100%;
+}
+.playlistCardDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  .playlistLink {
+    font-size: 1.7rem;
+  }
+}
+
+#playlistButton {
+  margin-top: 2rem;
+}
