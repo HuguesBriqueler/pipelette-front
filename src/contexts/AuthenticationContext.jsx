@@ -1,25 +1,25 @@
 import React, { useContext, useState, createContext } from "react";
 import PropTypes from "prop-types";
 
-const AuthContext = createContext();
+const AuthenticationContext = createContext();
 
 function AuthenticationProvider({ children }) {
   const [authentication, setAuthentication] = useState();
   const [userId, setUserId] = useState();
 
   return (
-    <AuthContext.Provider
+    <AuthenticationContext.Provider
       value={{ authentication, setAuthentication, userId, setUserId }}
     >
       {children}
-    </AuthContext.Provider>
+    </AuthenticationContext.Provider>
   );
 }
 
-const useAuthentication = () => useContext(AuthContext);
+const useAuthentication = () => useContext(AuthenticationContext);
 
 AuthenticationProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export { AuthenticationProvider, useAuthentication };
+export { AuthenticationContext, AuthenticationProvider, useAuthentication };
