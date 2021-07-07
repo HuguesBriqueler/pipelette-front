@@ -23,3 +23,23 @@
 #playlistButton {
   margin-top: 2rem;
 }
+
+.capsuleCardDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+p {
+  font-size: 1.7rem;
+  font-family: "Josefin Slab", serif;
+  padding: 0.8rem;
+}
+
+.interactiveButtons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

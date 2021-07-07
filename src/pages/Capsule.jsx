@@ -29,19 +29,23 @@ function Capsule() {
 
   return (
     <>
-      {alreadyHaveCapsule.map((capsule) => (
-        <div className="wrapper" key={capsule.id}>
-          <h1>{capsule.audio_title}</h1>
-          <div className="interactiveButtons">
-            <button type="button">Lire</button>
-            <button type="button">pause</button>
-            <button type="button">Supprimer</button>
+      <div className="wrapper">
+        {alreadyHaveCapsule.map((capsule) => (
+          <div className="capsuleCardDisplay" key={capsule.id}>
+            <p>{capsule.audio_title}</p>
+            <div className="interactiveButtons">
+              <button type="button">Lire</button>
+              <button type="button">pause</button>
+              <button type="button">Supprimer</button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
       <button
         type="button"
         className="button okButton"
+        id="playlistButton"
         onClick={() => {
           history.push("/library");
         }}
