@@ -14,7 +14,7 @@ const CSSCenter = styled.div`
 function IsNotLogged() {
   const emailInput = useRef();
   const passwordInput = useRef();
-  const { setAuthentication } = useAuthentication();
+  const { setAuthentication, setUserId } = useAuthentication();
 
   return (
     <>
@@ -44,6 +44,9 @@ function IsNotLogged() {
               const { token } = data;
               console.log(token);
               setAuthentication(token);
+              const { userId } = data;
+              console.log(userId);
+              setUserId(userId);
             });
         }}
       >

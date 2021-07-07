@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function CapsuleDisplay({ title }) {
   return (
-    <div>
+    <div className="interactiveButtons">
       <h1>{title}</h1>
       <button type="button">Lire</button>
       <button type="button">pause</button>

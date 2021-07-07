@@ -6,12 +6,12 @@ import Home from "../../pages/Home.jsx";
 import Profile from "../../pages/Profile.jsx";
 import Register from "../../pages/Register.jsx";
 import Login from "../../pages/Login.jsx";
-import Playlist from "../../pages/Playlist.jsx";
+// import Playlist from "../../pages/Playlist.jsx";
 import Logout from "../Logout.jsx";
 import Capsule from "../../pages/Capsule.jsx";
 import CreatePlaylist from "../../pages/CreatePlaylist.jsx";
 
-// import PlaylistIfLogged from "../PlaylistIfLogged.jsx";
+import PlaylistIfLogged from "../PlaylistIfLogged.jsx";
 
 function NavRoutes() {
   const routeTo = (path, componentDisplayed) => (
@@ -29,8 +29,8 @@ function NavRoutes() {
       en place la redirection vers "Connexion". Plus, il faut supprimer
       la route qui affiche le composant Playlist */}
 
-      {/* {routeTo("/library", PlaylistIfLogged)} */}
-      {routeTo("/library", Playlist)}
+      {routeTo("/library", PlaylistIfLogged)}
+      {/* {routeTo("/library", Playlist)} */}
       {routeTo("/logout", Logout)}
       {routeTo("/register", Register)}
       {routeTo("/login", Login)}

@@ -39,6 +39,14 @@ function Capsule() {
       >
         Retour
       </button>
+      <button
+        type="button"
+        onClick={() => {
+          history.push(`/playlists/${id}/create`);
+        }}
+      >
+        Créer une nouvelle capsule dans cette playlist
+      </button>
     </>
   );
 }

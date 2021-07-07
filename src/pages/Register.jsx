@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
+
 import "../CSS/Register.css";
 
 function Register() {
   const emailInput = useRef();
   const passwordInput = useRef();
   const confirmPasswordInput = useRef();
+  const history = useHistory();
 
   return (
     <form
@@ -18,6 +21,7 @@ function Register() {
           passwordInput.current.value === confirmPasswordInput.current.value
         ) {
           alert("You are successfully registered");
+          history.push("/login");
 
           const user = {
             email: emailInput.current.value,

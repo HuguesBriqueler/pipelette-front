@@ -10,12 +10,9 @@ function Playlist() {
   const history = useHistory();
 
   const url = "http://localhost:5000/playlists";
-  const config = {
-    method: "GET",
-  };
 
   useEffect(() => {
-    fetch(url, config)
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
