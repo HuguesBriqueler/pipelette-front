@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
 
 function CreatePlaylist() {
   const playlistNameInput = useRef();
 
   const redirectionToPlaylistUrl = "/library";
   const history = useHistory();
+
+  const { userId } = useAuthentication();
 
   return (
     <>
@@ -16,6 +19,7 @@ function CreatePlaylist() {
 
           const playlistInfos = {
             title: playlistNameInput.current.value,
+            user_id: userId,
           };
 
           console.log(playlistInfos);
