@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import CapsuleDisplay from "../components/CapsuleDisplay.jsx";
+
+import "../CSS/PlaylistAndCapsule.scss";
 
 function Capsule() {
   const [alreadyHaveCapsule, setAlreadyHaveCapsule] = useState([]);
@@ -29,7 +30,14 @@ function Capsule() {
   return (
     <>
       {alreadyHaveCapsule.map((capsule) => (
-        <CapsuleDisplay key={capsule.id} title={capsule.audio_title} />
+        <div className="wrapper" key={capsule.id}>
+          <h1>{capsule.audio_title}</h1>
+          <div className="interactiveButtons">
+            <button type="button">Lire</button>
+            <button type="button">pause</button>
+            <button type="button">Supprimer</button>
+          </div>
+        </div>
       ))}
       <button
         type="button"
@@ -43,6 +51,7 @@ function Capsule() {
       <button
         type="button"
         className="button okButton"
+        id="playlistButton"
         onClick={() => {
           history.push(`/playlists/${id}/create`);
         }}

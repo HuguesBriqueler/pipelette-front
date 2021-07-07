@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import CreatePlaylist from "./CreatePlaylist.jsx";
 
-import "../CSS/Playlist.scss";
+import "../CSS/PlaylistAndCapsule.scss";
 
 function Playlist() {
   const [alreadyHavePlaylist, setAlreadyHavePlaylist] = useState([]);
