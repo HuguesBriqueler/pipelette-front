@@ -32,7 +32,7 @@ function Capsule() {
       <div className="wrapper">
         {alreadyHaveCapsule.map((capsule) => (
           <div className="capsuleCardDisplay" key={capsule.id}>
-            <p>{capsule.audio_title}</p>
+            <p id="capsuleCss">{capsule.audio_title}</p>
             <div className="interactiveButtons">
               <button type="button">Lire</button>
               <button type="button">pause</button>
