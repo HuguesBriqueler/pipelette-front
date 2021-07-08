@@ -21,7 +21,23 @@
 }
 
 #playlistButton {
-  margin-top: 2rem;
+  align-self: inherit;
+  margin: 0;
+}
+
+.playlistButtonGoBackBtn {
+  width: 90%;
+  height: 50vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#playlistButtonGoBackBtn {
+  margin: 0;
+  align-self: inherit;
+  padding: 0.75rem 1.5em;
+  font-size: 1rem;
 }
 
 .capsuleCardDisplay {
@@ -29,10 +45,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1em;
 }
-
-p {
+#capsuleCss {
   font-size: 1.7rem;
   font-family: "Josefin Slab", serif;
   padding: 0.8rem;
@@ -42,4 +57,17 @@ p {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+}
+
+.btns {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: rgb(243, 137, 155);
+  cursor: pointer;
+}
+
+.btns:hover {
+  color: rgb(216, 42, 71);
+  opacity: 80%;
 }
