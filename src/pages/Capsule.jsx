@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faStop,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "../CSS/PlaylistAndCapsule.scss";
 
@@ -34,9 +41,18 @@ function Capsule() {
           <div className="capsuleCardDisplay" key={capsule.id}>
             <p id="capsuleCss">{capsule.audio_title}</p>
             <div className="interactiveButtons">
-              <button type="button">Lire</button>
-              <button type="button">pause</button>
-              <button type="button">Supprimer</button>
+              <button type="button" className="btns">
+                <FontAwesomeIcon icon={faPlay} />
+              </button>
+              <button type="button" className="btns">
+                <FontAwesomeIcon icon={faPause} />
+              </button>
+              <button type="button" className="btns">
+                <FontAwesomeIcon icon={faStop} />
+              </button>
+              <button type="button" className="btns">
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
             </div>
           </div>
         ))}

@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1em;
 }
 #capsuleCss {
   font-size: 1.7rem;
@@ -41,4 +41,17 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+}
+
+.btns {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: rgb(243, 137, 155);
+  cursor: pointer;
+}
+
+.btns:hover {
+  color: rgb(216, 42, 71);
+  opacity: 80%;
 }
