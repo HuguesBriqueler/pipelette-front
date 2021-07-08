@@ -56,6 +56,18 @@ function Capsule() {
             </div>
           </div>
         ))}
+        <div className="capsuleCardDisplay">
+          <button
+            type="button"
+            className="button okButton"
+            id="playlistButton"
+            onClick={() => {
+              history.push(`/playlists/${id}/create`);
+            }}
+          >
+            Créer une nouvelle capsule
+          </button>
+        </div>
       </div>
 
       <button
@@ -67,16 +79,6 @@ function Capsule() {
         }}
       >
         Retour
-      </button>
-      <button
-        type="button"
-        className="button okButton"
-        id="playlistButton"
-        onClick={() => {
-          history.push(`/playlists/${id}/create`);
-        }}
-      >
-        Créer une nouvelle capsule dans cette playlist
       </button>
     </>
   );
