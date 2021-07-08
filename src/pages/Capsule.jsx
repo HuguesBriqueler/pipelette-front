@@ -69,17 +69,18 @@ function Capsule() {
           </button>
         </div>
       </div>
-
-      <button
-        type="button"
-        className="button okButton"
-        id="playlistButton"
-        onClick={() => {
-          history.push("/library");
-        }}
-      >
-        Retour
-      </button>
+      <div className="playlistButtonGoBackBtn">
+        <button
+          type="button"
+          className="button okButton"
+          id="playlistButtonGoBackBtn"
+          onClick={() => {
+            history.push("/library");
+          }}
+        >
+          Retour
+        </button>
+      </div>
     </>
   );
 }
