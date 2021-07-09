@@ -28,8 +28,6 @@ function IsNotLogged() {
             password: passwordInput.current.value,
           };
 
-          console.log(user);
-
           const config = {
             method: "POST",
             headers: {
@@ -42,10 +40,8 @@ function IsNotLogged() {
             .then((res) => res.json())
             .then((data) => {
               const { token } = data;
-              console.log(token);
               setAuthentication(token);
               const { userId } = data;
-              console.log(userId);
               setUserId(userId);
             });
         }}

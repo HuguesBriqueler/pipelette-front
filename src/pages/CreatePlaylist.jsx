@@ -22,8 +22,6 @@ function CreatePlaylist() {
             user_id: userId,
           };
 
-          console.log(playlistInfos);
-
           const config = {
             method: "POST",
             headers: {
@@ -32,11 +30,7 @@ function CreatePlaylist() {
             body: JSON.stringify(playlistInfos),
           };
           const url = "http://localhost:5000/playlists";
-          fetch(url, config)
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-            });
+          fetch(url, config).then((res) => res.json());
 
           history.push(redirectionToPlaylistUrl);
         }}

@@ -54,7 +54,6 @@ class Studio extends React.Component {
     fetch(this.state.audioData.url)
       .then((response) => response.blob())
       .then((blob) => {
-        console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
         const url = "http://localhost:5000/capsule_upload";
@@ -66,7 +65,6 @@ class Studio extends React.Component {
           body: formData,
         });
       });
-    console.log("url", this.state.audioData.url);
   };
 
   onDelete = () => {
