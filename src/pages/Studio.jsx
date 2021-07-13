@@ -1,11 +1,12 @@
 import React from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
-import "../CSS/RecentCapsules.css";
-import "../CSS/Create.scss";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faStop } from "@fortawesome/free-solid-svg-icons";
 import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
+
+import "../CSS/RecentCapsules.css";
+import "../CSS/Create.scss";
 
 class Studio extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class Studio extends React.Component {
       isRecording: false,
       url: null,
       canBeSaved: false,
-      capsuleName: "",
       isPaused: false,
     };
   }
@@ -56,12 +56,9 @@ class Studio extends React.Component {
     fetch(this.state.audioData.url)
       .then((response) => response.blob())
       .then((blob) => {
+        console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
-        formData.append("audio_title", this.state.capsuleName);
-        if (this.props.match.params.playlistId) {
-          formData.append("playlistId", this.props.match.params.playlistId);
-        }
         const url = "http://localhost:5000/capsule_upload";
         fetch(url, {
           method: "post",
@@ -71,6 +68,7 @@ class Studio extends React.Component {
           body: formData,
         });
       });
+    console.log("url", this.state.audioData.url);
   };
 
   onDelete = () => {
@@ -84,7 +82,10 @@ class Studio extends React.Component {
     const { recordState } = this.state;
 
     return (
-       <div className="capsuleName">
+      <section className="microphone">
+        <h1>Studio Pipelette</h1>
+        <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        <div className="capsuleName">
           <label htmlFor="capsuleName">Titre de la capsule</label>
           <input
             name="capsuleName"
@@ -92,9 +93,6 @@ class Studio extends React.Component {
             value={this.state.capsuleName}
           />
         </div>
-      <section className="microphone">
-        <h1>Studio Pipelette</h1>
-        <h2 id="audioInstructions">Enregistrez votre capsule sonore</h2>
         <AudioReactRecorder
           state={recordState}
           onStop={this.onStop}
@@ -116,53 +114,26 @@ class Studio extends React.Component {
                   <span className="line -bottom"></span>
                 </a>
               </section>
-            </>
-          ) : (
-            <section className="portfolio-experiment">
-              <a type="button" id="microphone" onClick={this.start}>
-                <img
-                  id="audioInstructions"
-                  src="https://img.icons8.com/wired/64/000000/microphone.png"
-                />
-                <span className="line -right"></span>
-                <span className="line -top"></span>
-                <span className="line -left"></span>
-                <span className="line -bottom"></span>
-              </a>
-            </section>
-          )}
-          {this.state.canBeSaved && (
-            <>
-              <button className="saveButton" onClick={this.onSave}>
-                Sauvegarder
-              </button>
-              <button className="deleteButton" onClick={this.onDelete}>
-                Supprimer
-              </button>
-            </>
-          )}
-          <audio id="audio" controls src={this.state.audioData?.url}></audio>
-        </section>
-      </>
-            <section className="portfolio-experiment">
-              <a
-                type="button"
-                id="stop"
-                onClick={!this.state.isPaused ? this.pause : this.start}
-              >
-                <p>
+              <section className="portfolio-experiment">
+                <a
+                  type="button"
+                  id="stop"
+                  onClick={!this.state.isPaused ? this.pause : this.start}
+                >
+                  <p>
                     {!this.state.isPaused ? (
                       <FontAwesomeIcon className="icon" icon={faPause} />
                     ) : (
                       <FontAwesomeIcon className="icon" icon={faPlay} />
                     )}
                   </p>
-                <span className="line -right"></span>
-                <span className="line -top"></span>
-                <span className="line -left"></span>
-                <span className="line -bottom"></span>
-              </a>
-            </section>
+                  <span className="line -right"></span>
+                  <span className="line -top"></span>
+                  <span className="line -left"></span>
+                  <span className="line -bottom"></span>
+                </a>
+              </section>
+            </div>
           </>
         ) : (
           <section className="portfolio-experiment">
@@ -197,7 +168,7 @@ class Studio extends React.Component {
 Studio.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      playlistId: PropTypes.string,
+      playlistId: PropTypes.number,
     }).isRequired,
   }).isRequired,
 };
