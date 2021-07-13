@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlay,
-  faPause,
-  faStop,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
 
 import "../CSS/PlaylistAndCapsule.scss";
 
@@ -30,7 +23,7 @@ function Capsule() {
     return (
       <>
         <h1>
-          Vous n&apos;avez oas encore créé de Capsule, veuillez en créer une.
+          Vous n&apos;avez pas encore créé de Capsule, veuillez en créer une.
         </h1>
         <div className="capsuleCardDisplay">
           <button
@@ -58,20 +51,6 @@ function Capsule() {
               controls
               src={`http://localhost:5000/uploads/${capsule.audio_path}.wav`}
             ></audio>
-            <div className="interactiveButtons">
-              <button type="button" className="btns">
-                <FontAwesomeIcon icon={faPlay} />
-              </button>
-              <button type="button" className="btns">
-                <FontAwesomeIcon icon={faPause} />
-              </button>
-              <button type="button" className="btns">
-                <FontAwesomeIcon icon={faStop} />
-              </button>
-              <button type="button" className="btns">
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
-            </div>
           </div>
         ))}
         <div className="capsuleCardDisplay">
