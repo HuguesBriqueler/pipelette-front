@@ -29,7 +29,7 @@ function Capsule() {
   if (alreadyHaveCapsule.length === 0) {
     return (
       <h1>
-        Vous n&apos;avez oas encore créé de Capsule, veuillez en créer une.
+        Vous n&apos;avez pas encore créé de Capsule, veuillez en créer une.
       </h1>
     );
   }

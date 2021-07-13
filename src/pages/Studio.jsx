@@ -82,7 +82,7 @@ class Studio extends React.Component {
     return (
       <section className="microphone">
         <h1>Studio Pipelette</h1>
-        <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        <h2 id="audioInstructions">Enregistrez votre capsule sonore</h2>
         <AudioReactRecorder
           state={recordState}
           onStop={this.onStop}

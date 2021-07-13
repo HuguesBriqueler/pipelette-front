@@ -37,16 +37,6 @@ function Home() {
           {">"}
         </button>
       </div>
-      <p>
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at quam
-        reprehenderit possimus nisi, voluptate non enim ratione alias
-        architecto, molestiae deleniti amet voluptates libero odio soluta
-        maiores, dolor quod? Quod facilis iste id ex asperiores iusto dicta
-        animi fugiat ipsam dolorum. Assumenda explicabo deserunt obcaecati iste,
-        praesentium maiores nulla ut, nam quod, quidem inventore dolor
-        accusantium! Iusto natus error libero{" "}
-      </p>
     </div>
   );
 }
