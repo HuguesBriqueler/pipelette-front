@@ -1,9 +1,12 @@
 import React from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faStop } from "@fortawesome/free-solid-svg-icons";
+import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
+
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
-import PropTypes from "prop-types";
-import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
 
 class Studio extends React.Component {
   constructor(props) {
@@ -99,28 +102,38 @@ class Studio extends React.Component {
         />
         {this.state.isRecording ? (
           <>
-            <section className="portfolio-experiment">
-              <a type="button" id="stop" onClick={this.stop}>
-                <p>STOP</p>
-                <span className="line -right"></span>
-                <span className="line -top"></span>
-                <span className="line -left"></span>
-                <span className="line -bottom"></span>
-              </a>
-            </section>
-            <section className="portfolio-experiment">
-              <a
-                type="button"
-                id="stop"
-                onClick={!this.state.isPaused ? this.pause : this.start}
-              >
-                <p>{!this.state.isPaused ? "PAUSE" : "START"}</p>
-                <span className="line -right"></span>
-                <span className="line -top"></span>
-                <span className="line -left"></span>
-                <span className="line -bottom"></span>
-              </a>
-            </section>
+            <div className="pauseStop">
+              <section className="portfolio-experiment">
+                <a type="button" id="stop" onClick={this.stop}>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faStop} />
+                  </p>
+                  <span className="line -right"></span>
+                  <span className="line -top"></span>
+                  <span className="line -left"></span>
+                  <span className="line -bottom"></span>
+                </a>
+              </section>
+              <section className="portfolio-experiment">
+                <a
+                  type="button"
+                  id="stop"
+                  onClick={!this.state.isPaused ? this.pause : this.start}
+                >
+                  <p>
+                    {!this.state.isPaused ? (
+                      <FontAwesomeIcon className="icon" icon={faPause} />
+                    ) : (
+                      <FontAwesomeIcon className="icon" icon={faPlay} />
+                    )}
+                  </p>
+                  <span className="line -right"></span>
+                  <span className="line -top"></span>
+                  <span className="line -left"></span>
+                  <span className="line -bottom"></span>
+                </a>
+              </section>
+            </div>
           </>
         ) : (
           <section className="portfolio-experiment">
