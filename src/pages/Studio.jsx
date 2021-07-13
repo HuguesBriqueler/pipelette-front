@@ -58,6 +58,10 @@ class Studio extends React.Component {
       .then((blob) => {
         console.log(blob);
         const formData = new FormData();
+        formData.append("audio_title", this.state.capsuleName);
+        if (this.props.match.params.playlistId) {
+          formData.append("playlistId", this.props.match.params.playlistId);
+        }
         formData.append("blob", blob);
         const url = "http://localhost:5000/capsule_upload";
         fetch(url, {
