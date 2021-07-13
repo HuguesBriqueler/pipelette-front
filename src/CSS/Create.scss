@@ -5,7 +5,19 @@
 #audio {
   margin-top: 25px;
 }
-
+.pauseStop {
+  display: flex;
+  justify-content:space-around;
+  flex-direction: row-reverse;
+  width: 300px;
+}
+#stop {
+  height: 55px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .recordButtons {
   background-color: rgba(0, 0, 0, 0);
   border: none;
