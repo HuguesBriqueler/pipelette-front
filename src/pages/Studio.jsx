@@ -3,6 +3,8 @@ import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faStop } from "@fortawesome/free-solid-svg-icons";
 import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
 
 class Studio extends React.Component {
@@ -82,8 +84,7 @@ class Studio extends React.Component {
     const { recordState } = this.state;
 
     return (
-      <>
-        <div className="capsuleName">
+       <div className="capsuleName">
           <label htmlFor="capsuleName">Titre de la capsule</label>
           <input
             name="capsuleName"
@@ -91,21 +92,24 @@ class Studio extends React.Component {
             value={this.state.capsuleName}
           />
         </div>
-        <section className="microphone">
-          <h1>Studio Pipelette</h1>
-          <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-          <AudioReactRecorder
-            state={recordState}
-            onStop={this.onStop}
-            backgroundColor="rgb(255,255,255)"
-            foregroundColor="#f5bbb7"
-            className="audiorecord"
-          />
-          {this.state.isRecording ? (
-            <>
+      <section className="microphone">
+        <h1>Studio Pipelette</h1>
+        <h2 id="audioInstructions">Enregistrez votre capsule sonore</h2>
+        <AudioReactRecorder
+          state={recordState}
+          onStop={this.onStop}
+          backgroundColor="rgb(255,255,255)"
+          foregroundColor="#f5bbb7"
+          className="audiorecord"
+        />
+        {this.state.isRecording ? (
+          <>
+            <div className="pauseStop">
               <section className="portfolio-experiment">
                 <a type="button" id="stop" onClick={this.stop}>
-                  <p>STOP</p>
+                  <p>
+                    <FontAwesomeIcon className="icon" icon={faStop} />
+                  </p>
                   <span className="line -right"></span>
                   <span className="line -top"></span>
                   <span className="line -left"></span>
@@ -146,7 +150,13 @@ class Studio extends React.Component {
                 id="stop"
                 onClick={!this.state.isPaused ? this.pause : this.start}
               >
-                <p>{!this.state.isPaused ? "PAUSE" : "START"}</p>
+                <p>
+                    {!this.state.isPaused ? (
+                      <FontAwesomeIcon className="icon" icon={faPause} />
+                    ) : (
+                      <FontAwesomeIcon className="icon" icon={faPlay} />
+                    )}
+                  </p>
                 <span className="line -right"></span>
                 <span className="line -top"></span>
                 <span className="line -left"></span>
@@ -170,14 +180,12 @@ class Studio extends React.Component {
         )}
         {this.state.canBeSaved && (
           <>
-            <div>
-              <button className="saveButton" onClick={this.onSave}>
-                Sauvegarder
-              </button>
-              <button className="deleteButton" onClick={this.onDelete}>
-                Supprimer
-              </button>
-            </div>
+            <button className="saveButton" onClick={this.onSave}>
+              Sauvegarder
+            </button>
+            <button className="deleteButton" onClick={this.onDelete}>
+              Supprimer
+            </button>
           </>
         )}
         <audio id="audio" controls src={this.state.audioData?.url}></audio>
