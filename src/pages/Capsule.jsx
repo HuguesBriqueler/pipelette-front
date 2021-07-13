@@ -16,21 +16,35 @@ function Capsule() {
   const history = useHistory();
   const { id } = useParams();
 
-  const url = `http://localhost:5000/playlists/${id}/capsules`;
-
   useEffect(() => {
+    const url = `http://localhost:5000/playlists/${id}/capsules`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setAlreadyHaveCapsule(data);
       });
-  }, []);
+  }, [id]);
 
   if (alreadyHaveCapsule.length === 0) {
     return (
-      <h1>
-        Vous n&apos;avez pas encore créé de Capsule, veuillez en créer une.
-      </h1>
+      <>
+        <h1>
+          Vous n&apos;avez oas encore créé de Capsule, veuillez en créer une.
+        </h1>
+        <div className="capsuleCardDisplay">
+          <button
+            type="button"
+            className="button okButton"
+            id="playlistButton"
+            onClick={() => {
+              history.push(`/playlists/${id}/create`);
+            }}
+          >
+            Créer une nouvelle capsule
+          </button>
+        </div>
+      </>
     );
   }
 
@@ -40,6 +54,10 @@ function Capsule() {
         {alreadyHaveCapsule.map((capsule) => (
           <div className="capsuleCardDisplay" key={capsule.id}>
             <p id="capsuleCss">{capsule.audio_title}</p>
+            <audio
+              controls
+              src={`http://localhost:5000/uploads/${capsule.audio_path}.wav`}
+            ></audio>
             <div className="interactiveButtons">
               <button type="button" className="btns">
                 <FontAwesomeIcon icon={faPlay} />
@@ -68,18 +86,6 @@ function Capsule() {
             Créer une nouvelle capsule
           </button>
         </div>
-      </div>
-      <div className="playlistButtonGoBackBtn">
-        <button
-          type="button"
-          className="button okButton"
-          id="playlistButtonGoBackBtn"
-          onClick={() => {
-            history.push("/library");
-          }}
-        >
-          Retour
-        </button>
       </div>
     </>
   );
