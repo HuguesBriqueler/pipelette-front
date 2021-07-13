@@ -16,15 +16,15 @@ function Capsule() {
   const history = useHistory();
   const { id } = useParams();
 
-  const url = `http://localhost:5000/playlists/${id}/capsules`;
-
   useEffect(() => {
+    const url = `http://localhost:5000/playlists/${id}/capsules`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setAlreadyHaveCapsule(data);
       });
-  }, []);
+  }, [id]);
 
   if (alreadyHaveCapsule.length === 0) {
     return (
@@ -54,6 +54,10 @@ function Capsule() {
         {alreadyHaveCapsule.map((capsule) => (
           <div className="capsuleCardDisplay" key={capsule.id}>
             <p id="capsuleCss">{capsule.audio_title}</p>
+            <audio
+              controls
+              src={`http://localhost:5000/uploads/${capsule.audio_path}.wav`}
+            ></audio>
             <div className="interactiveButtons">
               <button type="button" className="btns">
                 <FontAwesomeIcon icon={faPlay} />
