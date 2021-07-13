@@ -128,12 +128,14 @@ class Studio extends React.Component {
         )}
         {this.state.canBeSaved && (
           <>
-            <button className="saveButton" onClick={this.onSave}>
-              Sauvegarder
-            </button>
-            <button className="deleteButton" onClick={this.onDelete}>
-              Supprimer
-            </button>
+            <div>
+              <button className="saveButton" onClick={this.onSave}>
+                Sauvegarder
+              </button>
+              <button className="deleteButton" onClick={this.onDelete}>
+                Supprimer
+              </button>
+            </div>
           </>
         )}
         <audio id="audio" controls src={this.state.audioData?.url}></audio>
