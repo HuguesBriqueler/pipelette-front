@@ -28,9 +28,23 @@ function Capsule() {
 
   if (alreadyHaveCapsule.length === 0) {
     return (
-      <h1>
-        Vous n&apos;avez oas encore créé de Capsule, veuillez en créer une.
-      </h1>
+      <>
+        <h1>
+          Vous n&apos;avez oas encore créé de Capsule, veuillez en créer une.
+        </h1>
+        <div className="capsuleCardDisplay">
+          <button
+            type="button"
+            className="button okButton"
+            id="playlistButton"
+            onClick={() => {
+              history.push(`/playlists/${id}/create`);
+            }}
+          >
+            Créer une nouvelle capsule
+          </button>
+        </div>
+      </>
     );
   }
 
@@ -68,18 +82,6 @@ function Capsule() {
             Créer une nouvelle capsule
           </button>
         </div>
-      </div>
-      <div className="playlistButtonGoBackBtn">
-        <button
-          type="button"
-          className="button okButton"
-          id="playlistButtonGoBackBtn"
-          onClick={() => {
-            history.push("/library");
-          }}
-        >
-          Retour
-        </button>
       </div>
     </>
   );
