@@ -71,6 +71,10 @@ h2 {
   background-color: #efdccc;
 }
 
+audio::-webkit-media-controls-panel {
+  background-color: #f7b6c1;
+}
+
 $thick: 3px;
 $pad: 0.7em;
 $extra: calc(#{$pad} * 1.2);
