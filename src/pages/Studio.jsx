@@ -15,7 +15,6 @@ class Studio extends React.Component {
       isRecording: false,
       url: null,
       canBeSaved: false,
-      capsuleName: "",
       isPaused: false,
     };
   }
@@ -54,12 +53,9 @@ class Studio extends React.Component {
     fetch(this.state.audioData.url)
       .then((response) => response.blob())
       .then((blob) => {
+        console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
-        formData.append("audio_title", this.state.capsuleName);
-        if (this.props.match.params.playlistId) {
-          formData.append("playlistId", this.props.match.params.playlistId);
-        }
         const url = "http://localhost:5000/capsule_upload";
         fetch(url, {
           method: "post",
@@ -69,6 +65,7 @@ class Studio extends React.Component {
           body: formData,
         });
       });
+    console.log("url", this.state.audioData.url);
   };
 
   onDelete = () => {
@@ -82,7 +79,9 @@ class Studio extends React.Component {
     const { recordState } = this.state;
 
     return (
-      <>
+      <section className="microphone">
+        <h1>Studio Pipelette</h1>
+        <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
         <div className="capsuleName">
           <label htmlFor="capsuleName">Titre de la capsule</label>
           <input
@@ -91,55 +90,24 @@ class Studio extends React.Component {
             value={this.state.capsuleName}
           />
         </div>
-        <section className="microphone">
-          <h1>Studio Pipelette</h1>
-          <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
-          <AudioReactRecorder
-            state={recordState}
-            onStop={this.onStop}
-            backgroundColor="rgb(255,255,255)"
-            foregroundColor="#f5bbb7"
-            className="audiorecord"
-          />
-          {this.state.isRecording ? (
-            <>
-              <section className="portfolio-experiment">
-                <a type="button" id="stop" onClick={this.stop}>
-                  <p>STOP</p>
-                  <span className="line -right"></span>
-                  <span className="line -top"></span>
-                  <span className="line -left"></span>
-                  <span className="line -bottom"></span>
-                </a>
-              </section>
-            </>
-          ) : (
+        <AudioReactRecorder
+          state={recordState}
+          onStop={this.onStop}
+          backgroundColor="rgb(255,255,255)"
+          foregroundColor="#f5bbb7"
+          className="audiorecord"
+        />
+        {this.state.isRecording ? (
+          <>
             <section className="portfolio-experiment">
-              <a type="button" id="microphone" onClick={this.start}>
-                <img
-                  id="audioInstructions"
-                  src="https://img.icons8.com/wired/64/000000/microphone.png"
-                />
+              <a type="button" id="stop" onClick={this.stop}>
+                <p>STOP</p>
                 <span className="line -right"></span>
                 <span className="line -top"></span>
                 <span className="line -left"></span>
                 <span className="line -bottom"></span>
               </a>
             </section>
-          )}
-          {this.state.canBeSaved && (
-            <>
-              <button className="saveButton" onClick={this.onSave}>
-                Sauvegarder
-              </button>
-              <button className="deleteButton" onClick={this.onDelete}>
-                Supprimer
-              </button>
-            </>
-          )}
-          <audio id="audio" controls src={this.state.audioData?.url}></audio>
-        </section>
-      </>
             <section className="portfolio-experiment">
               <a
                 type="button"
@@ -187,7 +155,7 @@ class Studio extends React.Component {
 Studio.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      playlistId: PropTypes.string,
+      playlistId: PropTypes.number,
     }).isRequired,
   }).isRequired,
 };
