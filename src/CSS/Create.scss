@@ -2,8 +2,12 @@
   max-width: 100%;
 }
 
+#audio {
+  margin-top: 25px;
+}
+
 .recordButtons {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   width: 2rem;
   height: 2rem;
@@ -14,102 +18,101 @@
   display: flex;
   justify-content: space-evenly;
 }
-h2{
-margin-bottom: .5rem;
+h2 {
+  margin-bottom: 0.5rem;
 }
 #audioInstructions {
   color: gray;
 }
 .microphone {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#cancelButton, #saveButton {
-color:#d04c55;
-padding: .5rem 1rem; 
-background-color: #efdccc;
-border-color: #d04c55;
-margin-top: 2rem;
+#cancelButton,
+#saveButton {
+  color: #d04c55;
+  padding: 0.5rem 1rem;
+  background-color: #efdccc;
+  border-color: #d04c55;
+  margin-top: 2rem;
 }
 
-$thick : 3px;
-$pad : 0.7em;
-$extra : calc(#{$pad} * 1.2);
-$color : #d04c55;
-
+$thick: 3px;
+$pad: 0.7em;
+$extra: calc(#{$pad} * 1.2);
+$color: #d04c55;
 
 .portfolio-experiment {
-background: #efdccc;
-border-radius: 50%;
-border: 2px solid #d04c55;
-box-shadow: 0 0 .5rem 0 gray;
-margin-top: 4rem;
+  background: #efdccc;
+  border-radius: 50%;
+  border: 2px solid #d04c55;
+  box-shadow: 0 0 0.5rem 0 gray;
+  margin-top: 4rem;
 
-a {
-  color: white;
-  padding: $pad $extra;
-  display: inline-block;
-  border: $thick solid transparent;
-  position: relative;
-  font-size: 1.5em;
-  cursor: pointer;
-  letter-spacing: 0.07em;
-  text-align: center;
+  a {
+    color: white;
+    padding: $pad $extra;
+    display: inline-block;
+    border: $thick solid transparent;
+    position: relative;
+    font-size: 1.5em;
+    cursor: pointer;
+    letter-spacing: 0.07em;
+    text-align: center;
 
-  .text {
-    // padding: 0 0.3em;
-    font-family: proxima-nova, monospace;
-    display: block;
-    transition: transform 0.4s cubic-bezier(.2,0,0,1) 0.4s;
-    color:#d04c55;
+    .text {
+      // padding: 0 0.3em;
+      font-family: proxima-nova, monospace;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+      color: #d04c55;
+    }
   }
 
-}
+  .line {
+    position: absolute;
+    background: $color;
 
-.line {
-  position: absolute;
-  background: $color;
+    &.-right,
+    &.-left {
+      width: $thick;
+      bottom: -$thick;
+      top: -$thick;
+      transform: scale3d(1, 0, 1);
+    }
 
-  &.-right,
-  &.-left {
-    width: $thick;
-    bottom: -$thick;
-    top: -$thick;
-    transform: scale3d(1,0,1);
-  }  
+    &.-top,
+    &.-bottom {
+      height: $thick;
+      left: -$thick;
+      right: -$thick;
+      transform: scale3d(0, 1, 1);
+    }
 
-  &.-top,
-  &.-bottom {
-    height: $thick;
-    left: -$thick;
-    right: -$thick;
-    transform: scale3d(0,1,1);
+    &.-right {
+      right: -$thick;
+      transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+      transform-origin: top;
+    }
+
+    &.-top {
+      top: -$thick;
+      transition: transform 0.08s linear 0.43s;
+      transform-origin: left;
+    }
+
+    &.-left {
+      left: -$thick;
+      transition: transform 0.08s linear 0.51s;
+      transform-origin: bottom;
+    }
+
+    &.-bottom {
+      bottom: -$thick;
+      transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+      transform-origin: right;
+    }
   }
-
-  &.-right {
-    right: -$thick;
-    transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.23s;
-    transform-origin: top;
-  }
-
-  &.-top {
-    top: -$thick;
-    transition: transform 0.08s linear 0.43s;
-    transform-origin: left;
-  }
-
-  &.-left {
-    left: -$thick;
-    transition: transform 0.08s linear 0.51s;
-    transform-origin: bottom;
-  }
-
-  &.-bottom {
-    bottom: -$thick;
-    transition: transform 0.3s cubic-bezier(1,0,.65,1.01);
-    transform-origin: right;
-  }
-}
 }

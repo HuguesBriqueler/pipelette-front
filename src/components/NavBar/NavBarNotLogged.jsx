@@ -48,7 +48,7 @@ function NavBarNotLogged() {
                 "/library",
                 <>
                   <FontAwesomeIcon className="icon" icon={faMusic} />
-                  Mes Audios
+                  Mes audios
                 </>
               )}
             </li>
