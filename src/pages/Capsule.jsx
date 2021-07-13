@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
 
 import "../CSS/PlaylistAndCapsule.scss";
 
 function Capsule() {
   const [alreadyHaveCapsule, setAlreadyHaveCapsule] = useState([]);
+  const { authentication } = useAuthentication();
 
   const history = useHistory();
   const { id } = useParams();
@@ -12,7 +14,12 @@ function Capsule() {
   useEffect(() => {
     const url = `http://localhost:5000/playlists/${id}/capsules`;
 
-    fetch(url)
+    const config = {
+      headers: {
+        Authorization: `Bearer ${authentication}`,
+      },
+    };
+    fetch(url, config)
       .then((res) => res.json())
       .then((data) => {
         setAlreadyHaveCapsule(data);

@@ -5,18 +5,25 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import CreatePlaylist from "./CreatePlaylist.jsx";
 
 import "../CSS/PlaylistAndCapsule.scss";
+import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
 
 function Playlist() {
   const [alreadyHavePlaylist, setAlreadyHavePlaylist] = useState([]);
+  const { authentication } = useAuthentication();
 
   const redirectionToCreatePlaylistUrl = "library/create";
 
   const history = useHistory();
 
   const url = "http://localhost:5000/playlists";
+  const config = {
+    headers: {
+      Authorization: `Bearer ${authentication}`,
+    },
+  };
 
   useEffect(() => {
-    fetch(url)
+    fetch(url, config)
       .then((res) => res.json())
       .then((data) => {
         setAlreadyHavePlaylist(data);
@@ -29,6 +36,12 @@ function Playlist() {
 
   return (
     <div className="wrapper">
+      <div className="playlistCardDisplay">
+        <Link to={`/playlists/0`} className="playlistLink">
+          Mes audios sans playlist
+        </Link>
+        <FontAwesomeIcon icon={faChevronRight} />
+      </div>
       {alreadyHavePlaylist.map(({ id, title }) => (
         <div className="playlistCardDisplay" key={id}>
           <Link to={`/playlists/${id}`} className="playlistLink">
