@@ -15,23 +15,22 @@ class Studio extends React.Component {
       isRecording: false,
       url: null,
       canBeSaved: false,
+      isPaused: false,
     };
-    // console.log(
-    //   "I am here to record in playlist:",
-    //   this.props.match.params.playlistId
-    // );
   }
 
   start = () => {
     this.setState({
       recordState: RecordState.START,
       isRecording: true,
+      isPaused: false,
     });
   };
 
   pause = () => {
     this.setState({
       recordState: RecordState.PAUSE,
+      isPaused: true,
     });
   };
 
@@ -93,6 +92,19 @@ class Studio extends React.Component {
             <section className="portfolio-experiment">
               <a type="button" id="stop" onClick={this.stop}>
                 <p>STOP</p>
+                <span className="line -right"></span>
+                <span className="line -top"></span>
+                <span className="line -left"></span>
+                <span className="line -bottom"></span>
+              </a>
+            </section>
+            <section className="portfolio-experiment">
+              <a
+                type="button"
+                id="stop"
+                onClick={!this.state.isPaused ? this.pause : this.start}
+              >
+                <p>{!this.state.isPaused ? "PAUSE" : "START"}</p>
                 <span className="line -right"></span>
                 <span className="line -top"></span>
                 <span className="line -left"></span>
