@@ -45,7 +45,7 @@ function Playlist() {
           history.push(redirectionToCreatePlaylistUrl);
         }}
       >
-        Créer une nouvelle playlist
+        Nouvelle playlist
       </button>
     </div>
   );
