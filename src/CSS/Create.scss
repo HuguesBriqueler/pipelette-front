@@ -51,6 +51,26 @@ h2 {
   margin-top: 2rem;
 }
 
+.saveButton {
+  padding: 7px;
+  border-radius: 12px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-color: #d04c55;
+  background-color: #efdccc;
+}
+
+.deleteButton {
+  padding: 7px;
+  border-radius: 12px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-color: #d04c55;
+  background-color: #efdccc;
+}
+
 $thick: 3px;
 $pad: 0.7em;
 $extra: calc(#{$pad} * 1.2);
