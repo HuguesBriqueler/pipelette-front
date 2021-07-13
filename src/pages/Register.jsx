@@ -20,7 +20,6 @@ function Register() {
           confirmPasswordInput.current.value !== "" &&
           passwordInput.current.value === confirmPasswordInput.current.value
         ) {
-          alert("You are successfully registered");
           history.push("/login");
 
           const user = {
@@ -30,8 +29,6 @@ function Register() {
           };
 
           const url = "http://localhost:5000/users";
-
-          console.log(user);
 
           const config = {
             method: "POST",

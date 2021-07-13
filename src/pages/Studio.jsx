@@ -16,23 +16,22 @@ class Studio extends React.Component {
       url: null,
       canBeSaved: false,
       capsuleName: "",
+      isPaused: false,
     };
-    // console.log(
-    //   "I am here to record in playlist:",
-    //   this.props.match.params.playlistId
-    // );
   }
 
   start = () => {
     this.setState({
       recordState: RecordState.START,
       isRecording: true,
+      isPaused: false,
     });
   };
 
   pause = () => {
     this.setState({
       recordState: RecordState.PAUSE,
+      isPaused: true,
     });
   };
 
@@ -55,7 +54,6 @@ class Studio extends React.Component {
     fetch(this.state.audioData.url)
       .then((response) => response.blob())
       .then((blob) => {
-        console.log(blob);
         const formData = new FormData();
         formData.append("blob", blob);
         formData.append("audio_title", this.state.capsuleName);
@@ -142,6 +140,46 @@ class Studio extends React.Component {
           <audio id="audio" controls src={this.state.audioData?.url}></audio>
         </section>
       </>
+            <section className="portfolio-experiment">
+              <a
+                type="button"
+                id="stop"
+                onClick={!this.state.isPaused ? this.pause : this.start}
+              >
+                <p>{!this.state.isPaused ? "PAUSE" : "START"}</p>
+                <span className="line -right"></span>
+                <span className="line -top"></span>
+                <span className="line -left"></span>
+                <span className="line -bottom"></span>
+              </a>
+            </section>
+          </>
+        ) : (
+          <section className="portfolio-experiment">
+            <a type="button" id="microphone" onClick={this.start}>
+              <img
+                id="audioInstructions"
+                src="https://img.icons8.com/wired/64/000000/microphone.png"
+              />
+              <span className="line -right"></span>
+              <span className="line -top"></span>
+              <span className="line -left"></span>
+              <span className="line -bottom"></span>
+            </a>
+          </section>
+        )}
+        {this.state.canBeSaved && (
+          <>
+            <button className="saveButton" onClick={this.onSave}>
+              Sauvegarder
+            </button>
+            <button className="deleteButton" onClick={this.onDelete}>
+              Supprimer
+            </button>
+          </>
+        )}
+        <audio id="audio" controls src={this.state.audioData?.url}></audio>
+      </section>
     );
   }
 }

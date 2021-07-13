@@ -49,7 +49,7 @@ function NavBarLogged() {
                 "/library",
                 <>
                   <FontAwesomeIcon className="icon" icon={faMusic} />
-                  Mes Audios
+                  Mes audios
                 </>
               )}
             </li>
