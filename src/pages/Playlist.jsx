@@ -35,32 +35,35 @@ function Playlist() {
   }
 
   return (
-    <div className="wrapper">
-      <div className="playlistCardDisplay">
-        <Link to={`/playlists/0`} className="playlistLink">
-          Mes audios sans playlist
-        </Link>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-      {alreadyHavePlaylist.map(({ id, title }) => (
-        <div className="playlistCardDisplay" key={id}>
-          <Link to={`/playlists/${id}`} className="playlistLink">
-            {title}
+    <>
+      <h1 className="titleStudio">Mes playlists</h1>
+      <div className="wrapper">
+        <div className="playlistCardDisplay">
+          <Link to={`/playlists/0`} className="playlistLink">
+            Mes audios sans playlist
           </Link>
           <FontAwesomeIcon icon={faChevronRight} />
         </div>
-      ))}
-      <button
-        type="button"
-        className="button okButton"
-        id="playlistButton"
-        onClick={() => {
-          history.push(redirectionToCreatePlaylistUrl);
-        }}
-      >
-        Nouvelle playlist
-      </button>
-    </div>
+        {alreadyHavePlaylist.map(({ id, title }) => (
+          <div className="playlistCardDisplay" key={id}>
+            <Link to={`/playlists/${id}`} className="playlistLink">
+              {title}
+            </Link>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </div>
+        ))}
+        <button
+          type="button"
+          className="button okButton"
+          id="playlistButton"
+          onClick={() => {
+            history.push(redirectionToCreatePlaylistUrl);
+          }}
+        >
+          Nouvelle playlist
+        </button>
+      </div>
+    </>
   );
 }
 
