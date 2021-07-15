@@ -1,10 +1,18 @@
 .audio-react-recorder__canvas {
   max-width: 100%;
+  width: 90vw;
+  height: 120px;
+}
+
+.audio-react-recorder {
+  height: 100px;
+  background: transparent;
 }
 
 #audio {
   margin-top: 25px;
 }
+
 .pauseStop {
   display: flex;
   justify-content: space-around;
@@ -51,6 +59,10 @@ h2 {
   margin-top: 2rem;
 }
 
+studioRecordBtns {
+  display: flex;
+}
+
 .saveButton {
   padding: 7px;
   border-radius: 12px;
@@ -59,6 +71,7 @@ h2 {
   margin-left: 20px;
   border-color: #d04c55;
   background-color: #efdccc;
+  width: 95px;
 }
 
 .deleteButton {
@@ -69,6 +82,24 @@ h2 {
   margin-left: 20px;
   border-color: #d04c55;
   background-color: #efdccc;
+  width: 95px;
+}
+.capsuleName {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.capsuleName label {
+  margin: 0px;
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.capsuleName input {
+  width: 75vw;
 }
 
 audio::-webkit-media-controls-panel {

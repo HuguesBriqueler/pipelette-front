@@ -23,7 +23,7 @@ function NavBarLogged() {
         <nav>
           <ul className="navBarUl">
             <li>{linkTo("/profile", "Profil")}</li>
-            <li>{linkTo("/logout", "Deconnexion")}</li>
+            <li>{linkTo("/logout", "Déconnexion")}</li>
           </ul>
           <ul className="navBarFooterUl">
             <li>

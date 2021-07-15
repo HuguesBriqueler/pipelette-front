@@ -7,6 +7,7 @@ import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
 
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
+import "../CSS/Home.css";
 
 class Studio extends React.Component {
   constructor(props) {
@@ -87,14 +88,15 @@ class Studio extends React.Component {
 
     return (
       <section className="microphone">
-        <h1 className="title_Create">Studio Pipelette</h1>
-        <h2 id="titleAudioInstructions">Enregitrez votre capsule sonore</h2>
+        <h1 className="title">Studio Pipelette</h1>
+        <h2 className="sloganStudio">Enregitrez votre capsule sonore</h2>
         <div className="capsuleName">
-          <label htmlFor="capsuleName">Titre de la capsule</label>
+          <label htmlFor="capsuleName">Titre de la capsule:</label>
           <input
             name="capsuleName"
             onChange={(e) => this.setState({ capsuleName: e.target.value })}
             value={this.state.capsuleName}
+            placeholder="Nom de votre capsule"
           />
         </div>
         <AudioReactRecorder
@@ -154,14 +156,14 @@ class Studio extends React.Component {
           </section>
         )}
         {this.state.canBeSaved && (
-          <>
+          <div className="studioRecordBtns">
             <button className="saveButton" onClick={this.onSave}>
               Sauvegarder
             </button>
             <button className="deleteButton" onClick={this.onDelete}>
               Supprimer
             </button>
-          </>
+          </div>
         )}
         <audio id="audio" controls src={this.state.audioData?.url}></audio>
       </section>
