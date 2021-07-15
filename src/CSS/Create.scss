@@ -51,6 +51,10 @@ h2 {
   margin-top: 2rem;
 }
 
+studioRecordBtns {
+  display: flex;
+}
+
 .saveButton {
   padding: 7px;
   border-radius: 12px;
@@ -59,6 +63,7 @@ h2 {
   margin-left: 20px;
   border-color: #d04c55;
   background-color: #efdccc;
+  width: 95px;
 }
 
 .deleteButton {
@@ -69,6 +74,7 @@ h2 {
   margin-left: 20px;
   border-color: #d04c55;
   background-color: #efdccc;
+  width: 95px;
 }
 
 audio::-webkit-media-controls-panel {

@@ -154,14 +154,14 @@ class Studio extends React.Component {
           </section>
         )}
         {this.state.canBeSaved && (
-          <>
+          <div className="studioRecordBtns">
             <button className="saveButton" onClick={this.onSave}>
               Sauvegarder
             </button>
             <button className="deleteButton" onClick={this.onDelete}>
               Supprimer
             </button>
-          </>
+          </div>
         )}
         <audio id="audio" controls src={this.state.audioData?.url}></audio>
       </section>
