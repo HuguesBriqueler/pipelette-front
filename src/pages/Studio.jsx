@@ -7,6 +7,7 @@ import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
 
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
+import "../CSS/Home.css";
 
 class Studio extends React.Component {
   constructor(props) {
@@ -87,8 +88,8 @@ class Studio extends React.Component {
 
     return (
       <section className="microphone">
-        <h1>Studio Pipelette</h1>
-        <h2 id="audioInstructions">Enregistrez votre capsule sonore</h2>
+        <h1 className="title">Studio Pipelette</h1>
+        <h2 className="sloganStudio">Enregitrez votre capsule sonore</h2>
         <div className="capsuleName">
           <label htmlFor="capsuleName">Titre de la capsule:</label>
           <input
