@@ -87,8 +87,8 @@ class Studio extends React.Component {
 
     return (
       <section className="microphone">
-        <h1>Studio Pipelette</h1>
-        <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        <h1 className="title_Create">Studio Pipelette</h1>
+        <h2 id="titleAudioInstructions">Enregitrez votre capsule sonore</h2>
         <div className="capsuleName">
           <label htmlFor="capsuleName">Titre de la capsule</label>
           <input
