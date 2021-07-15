@@ -29,9 +29,12 @@ function Capsule() {
   if (alreadyHaveCapsule.length === 0) {
     return (
       <>
-        <h1>
-          Vous n&apos;avez pas encore créé de Capsule, veuillez en créer une.
-        </h1>
+        <p id="noCapsule">
+          Vous n&apos;avez pas encore créé de capsules.
+          <br />
+          <br />
+          Veuillez en créer une pour pouvoir les consulter.
+        </p>
         <div className="capsuleCardDisplay">
           <button
             type="button"

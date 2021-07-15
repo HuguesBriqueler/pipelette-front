@@ -88,13 +88,14 @@ class Studio extends React.Component {
     return (
       <section className="microphone">
         <h1>Studio Pipelette</h1>
-        <h2 id="audioInstructions">Enregitrez votre capsule sonore</h2>
+        <h2 id="audioInstructions">Enregistrez votre capsule sonore</h2>
         <div className="capsuleName">
-          <label htmlFor="capsuleName">Titre de la capsule</label>
+          <label htmlFor="capsuleName">Titre de la capsule:</label>
           <input
             name="capsuleName"
             onChange={(e) => this.setState({ capsuleName: e.target.value })}
             value={this.state.capsuleName}
+            placeholder="Nom de votre capsule"
           />
         </div>
         <AudioReactRecorder
