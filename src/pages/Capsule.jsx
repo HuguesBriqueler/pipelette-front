@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useAuthentication } from "../contexts/AuthenticationContext.jsx";
-
 import "../CSS/PlaylistAndCapsule.scss";
 
 function Capsule() {
@@ -61,6 +62,7 @@ function Capsule() {
               controls
               src={`http://localhost:5000/uploads/${capsule.audio_path}.wav`}
             ></audio>
+            <FontAwesomeIcon icon={faTrash} className="trash" />
           </div>
         ))}
         <div className="capsuleCardDisplay">
