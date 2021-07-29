@@ -2,9 +2,10 @@ import React from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { faPlay, faPause, faStop } from "@fortawesome/free-solid-svg-icons";
 import { AuthenticationContext } from "../contexts/AuthenticationContext.jsx";
-
 import "../CSS/RecentCapsules.css";
 import "../CSS/Create.scss";
 import "../CSS/Home.css";
@@ -73,6 +74,7 @@ class Studio extends React.Component {
           body: formData,
         });
       });
+    toast.success("Capsule sauvegardée !");
     console.log("url", this.state.audioData.url);
   };
 
@@ -157,6 +159,17 @@ class Studio extends React.Component {
         )}
         {this.state.canBeSaved && (
           <div className="studioRecordBtns">
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <button className="saveButton" onClick={this.onSave}>
               Sauvegarder
             </button>
